@@ -52,14 +52,14 @@
                             @endforeach
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th>
                             {{ trans('cruds.user.fields.institution') }}
                         </th>
                         <td>
                             {{ $user->institution->name ?? '' }}
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

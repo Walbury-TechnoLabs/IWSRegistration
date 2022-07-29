@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
-use App\Institution;
+use App\Committee;
+use App\Portfolio;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $newestCourses = Course::orderBy('id', 'desc')->take(3)->get();
-        $randomInstitutions = Institution::inRandomOrder()->take(3)->get();
+        $newestCommittees = Committee::orderBy('id', 'desc')->take(3)->get();
+        $randomPortfolios = Portfolio::inRandomOrder()->take(3)->get();
 
-        return view('home', compact(['newestCourses', 'randomInstitutions']));
+        return view('home', compact(['newestCommittees', 'randomPortfolios']));
     }
 }

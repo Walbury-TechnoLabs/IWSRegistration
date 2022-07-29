@@ -17,7 +17,7 @@ class EnrollmentsApiController extends Controller
     {
         abort_if(Gate::denies('enrollment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EnrollmentResource(Enrollment::with(['user', 'course'])->get());
+        return new EnrollmentResource(Enrollment::with(['user', 'committee'])->get());
     }
 
     public function store(StoreEnrollmentRequest $request)
@@ -33,7 +33,7 @@ class EnrollmentsApiController extends Controller
     {
         abort_if(Gate::denies('enrollment_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EnrollmentResource($enrollment->load(['user', 'course']));
+        return new EnrollmentResource($enrollment->load(['user', 'committee']));
     }
 
     public function update(UpdateEnrollmentRequest $request, Enrollment $enrollment)

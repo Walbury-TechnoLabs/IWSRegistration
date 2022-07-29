@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Institution;
+use App\Portfolio;
 use App\Role;
 use App\User;
 use Gate;
@@ -30,9 +30,9 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
-        $institutions = Institution::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $portfolios = Portfolio::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.users.create', compact('roles', 'institutions'));
+        return view('admin.users.create', compact('roles', 'portfolios'));
     }
 
     public function store(StoreUserRequest $request)
@@ -49,11 +49,11 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
-        $institutions = Institution::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $portfolios = Portfolio::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $user->load('roles', 'institution');
+        $user->load('roles', 'portfolio');
 
-        return view('admin.users.edit', compact('roles', 'institutions', 'user'));
+        return view('admin.users.edit', compact('roles', 'portfolios', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -68,7 +68,7 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $user->load('roles', 'institution');
+        $user->load('roles', 'portfolio');
 
         return view('admin.users.show', compact('user'));
     }

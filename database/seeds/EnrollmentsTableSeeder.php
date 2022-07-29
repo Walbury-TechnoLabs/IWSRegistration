@@ -1,7 +1,8 @@
 <?php
 
 use App\User;
-use App\Course;
+use App\Committee;
+use App\Portfolio;
 use App\Enrollment;
 use Illuminate\Database\Seeder;
 
@@ -14,12 +15,13 @@ class EnrollmentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $courses = Course::pluck('id');
+        $committees = Committee::pluck('id');
+        $portfolios = Portfolio::pluck('id');
         $user = User::first();
         $statuses = collect(['awaiting', 'accepted', 'rejected']);
-        foreach($courses as $course)
+        foreach($committees as $committee)
             $user->enrollments()->create([
-                'course_id' => $course,
+                'committee_id' => $committee,
                 'status' => $statuses->random()
             ]);
     }

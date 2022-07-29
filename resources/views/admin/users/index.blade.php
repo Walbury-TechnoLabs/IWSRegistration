@@ -37,9 +37,9 @@
                         <th>
                             {{ trans('cruds.user.fields.roles') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.user.fields.institution') }}
-                        </th>
+                        </th> -->
                         <th>
                             &nbsp;
                         </th>
@@ -68,9 +68,9 @@
                                     <span class="badge badge-info">{{ $item->title }}</span>
                                 @endforeach
                             </td>
-                            <td>
+                            <!-- <td>
                                 {{ $user->institution->name ?? '' }}
-                            </td>
+                            </td> -->
                             <td>
                                 @can('user_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.users.show', $user->id) }}">

@@ -4,7 +4,7 @@ namespace App\View\Composers;
 
 use Illuminate\View\View;
 use App\Discipline;
-use App\Institution;
+use App\Portfolio;
 
 class MenuComposer
 {
@@ -16,7 +16,7 @@ class MenuComposer
      */
     public function compose(View $view)
     {
-        $view->with('menuDisciplines', Discipline::withCount('courses')->whereHas('courses')->pluck('name', 'id'));
-        $view->with('menuInstitutions', Institution::withCount('courses')->whereHas('courses')->pluck('name', 'id'));
+        $view->with('menuDisciplines', Discipline::withCount('committees')->whereHas('committees')->pluck('name', 'id'));
+        $view->with('menuPortfolios', Portfolio::withCount('committees')->whereHas('committees')->pluck('name', 'id'));
     }
 }

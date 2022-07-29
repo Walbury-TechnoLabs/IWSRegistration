@@ -13,11 +13,11 @@
             @endif
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <h3 class="mb-30">Submit an application for course enrollment</h3>
+                    <h3 class="mb-30">Submit an application for enrollment in IWS</h3> 
                     @guest
-                        <p>If you have account, login with your credentials <a href="{{ route('enroll.handleLogin', $course->id) }}">here</a>.</p>
+                        <p>If you have account, login with your credentials <a href="{{ route('enroll.handleLogin', $committee->id) }}">here</a>.</p>
                     @endguest
-                    <form method="POST" action="{{ route('enroll.store', $course->id) }}">
+                    <form method="POST" action="{{ route('enroll.store', $committee->id) }}">
                         @csrf
                         <div class="mt-10">
                             <input type="text" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'"
@@ -37,7 +37,7 @@
                                 required class="single-input">
                             </div>
                         @endguest
-                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                        <input type="hidden" name="committee_id" value="{{ $committee->id }}">
                         <div class="mt-10 pull-right">
                             <input type="submit" class="genric-btn primary" name="submit" value="Submit">
                         </div>

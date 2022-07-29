@@ -13,6 +13,10 @@ class CreateDisciplinesTable extends Migration
 
             $table->string('name')->unique();
 
+            $table->longText('description')->nullable();
+
+            $table->decimal('price', 15, 2)->nullable();
+
             $table->timestamps();
 
             $table->softDeletes();

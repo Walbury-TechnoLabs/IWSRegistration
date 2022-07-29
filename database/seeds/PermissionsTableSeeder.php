@@ -94,43 +94,43 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => '22',
-                'title' => 'institution_create',
+                'title' => 'portfolio_create',
             ],
             [
                 'id'    => '23',
-                'title' => 'institution_edit',
+                'title' => 'portfolio_edit',
             ],
             [
                 'id'    => '24',
-                'title' => 'institution_show',
+                'title' => 'portfolio_show',
             ],
             [
                 'id'    => '25',
-                'title' => 'institution_delete',
+                'title' => 'portfolio_delete',
             ],
             [
                 'id'    => '26',
-                'title' => 'institution_access',
+                'title' => 'portfolio_access',
             ],
             [
                 'id'    => '27',
-                'title' => 'course_create',
+                'title' => 'committee_create',
             ],
             [
                 'id'    => '28',
-                'title' => 'course_edit',
+                'title' => 'committee_edit',
             ],
             [
                 'id'    => '29',
-                'title' => 'course_show',
+                'title' => 'committee_show',
             ],
             [
                 'id'    => '30',
-                'title' => 'course_delete',
+                'title' => 'committee_delete',
             ],
             [
                 'id'    => '31',
-                'title' => 'course_access',
+                'title' => 'committee_access',
             ],
             [
                 'id'    => '32',

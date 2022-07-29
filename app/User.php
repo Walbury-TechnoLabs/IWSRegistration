@@ -37,7 +37,6 @@ class User extends Authenticatable
         'updated_at',
         'deleted_at',
         'remember_token',
-        'institution_id',
         'email_verified_at',
     ];
 
@@ -73,12 +72,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function institution()
+    public function portfolio()
     {
-        return $this->belongsTo(Institution::class, 'institution_id');
+        return $this->belongsTo(Portfolio::class, 'portfolio_id');
     }
 
-    public function isInstitution()
+    public function isPortfolio()
     {
         return $this->roles->contains(2);
     }

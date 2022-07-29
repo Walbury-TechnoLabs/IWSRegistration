@@ -29,7 +29,10 @@
                             {{ trans('cruds.enrollment.fields.user') }}
                         </th>
                         <th>
-                            {{ trans('cruds.enrollment.fields.course') }}
+                            {{ trans('cruds.enrollment.fields.committee') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.enrollment.fields.portfolio') }}
                         </th>
                         <th>
                             {{ trans('cruds.enrollment.fields.status') }}
@@ -52,7 +55,10 @@
                                 {{ $enrollment->user->name ?? '' }}
                             </td>
                             <td>
-                                {{ $enrollment->course->name ?? '' }}
+                                {{ $enrollment->committee->name ?? '' }}
+                            </td>
+                            <td>
+                                {{ $enrollment->portfolio->name ?? '' }}
                             </td>
                             <td>
                                 {{ App\Enrollment::STATUS_RADIO[$enrollment->status] ?? '' }}

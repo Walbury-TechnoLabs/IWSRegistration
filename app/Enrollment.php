@@ -21,7 +21,8 @@ class Enrollment extends Model
     protected $fillable = [
         'status',
         'user_id',
-        'course_id',
+        'committee_id',
+        'portfolio_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -45,8 +46,13 @@ class Enrollment extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function course()
+    public function committee()
     {
-        return $this->belongsTo(Course::class, 'course_id');
+        return $this->belongsTo(Committee::class, 'committee_id');
+    }
+
+    public function portfolio()
+    {
+        return $this->belongsTo(Portfolio::class, 'portfolio_id');
     }
 }

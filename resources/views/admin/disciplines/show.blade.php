@@ -26,6 +26,22 @@
                             {{ $discipline->name }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.discipline.fields.description') }}
+                        </th>
+                        <td>
+                            {!! $discipline->description !!}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.discipline.fields.price') }}
+                        </th>
+                        <td>
+                            ${{ $discipline->price }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

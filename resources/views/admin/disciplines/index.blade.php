@@ -29,6 +29,12 @@
                             {{ trans('cruds.discipline.fields.name') }}
                         </th>
                         <th>
+                            {{ trans('cruds.discipline.fields.description') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.discipline.fields.price') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -44,6 +50,12 @@
                             </td>
                             <td>
                                 {{ $discipline->name ?? '' }}
+                            </td>
+                            <td>
+                                {{ $discipline->description ?? '' }}
+                            </td>
+                            <td>
+                                {{ $discipline->price ?? '' }}
                             </td>
                             <td>
                                 @can('discipline_show')

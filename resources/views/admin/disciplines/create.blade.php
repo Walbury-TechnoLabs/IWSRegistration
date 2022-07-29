@@ -16,9 +16,33 @@
                     <em class="invalid-feedback">
                         {{ $errors->first('name') }}
                     </em>
-                @endif
+                @endif 
                 <p class="helper-block">
                     {{ trans('cruds.discipline.fields.name_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+                <label for="description">{{ trans('cruds.discipline.fields.description') }}</label>
+                <textarea id="description" name="description" class="form-control ">{{ old('description', isset($discipline) ? $discipline->description : '') }}</textarea>
+                @if($errors->has('description'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('description') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.discipline.fields.description_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+                <label for="price">{{ trans('cruds.discipline.fields.price') }}</label>
+                <input type="number" id="price" name="price" class="form-control" value="{{ old('price', isset($discipline) ? $discipline->price : '') }}" step="0.01">
+                @if($errors->has('price'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('price') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.discipline.fields.price_helper') }}
                 </p>
             </div>
             <div>

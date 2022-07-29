@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
+use App\Committee;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class EnrollmentController extends Controller
 {
-    public function create(Course $course)
+    public function create(Committee $committee)
     {
-        $breadcrumb = "Enroll in $course->name course";
+        $breadcrumb = "Enroll in $committee->name committee";
 
-        return view('enrollment.enroll', compact('course', 'breadcrumb'));
+        return view('enrollment.enroll', compact('committee', 'breadcrumb'));
     }
 
-    public function store(Request $request, Course $course)
+    public function store(Request $request, Committee $committee)
     {
         if(auth()->guest())
         {
@@ -35,26 +35,26 @@ class EnrollmentController extends Controller
             auth()->login($user);
         }
         
-        $course->enrollments()->create(['user_id' => auth()->user()->id]);
+        $committee->enrollments()->create(['user_id' => auth()->user()->id]);
 
-        return redirect()->route('enroll.myCourses');
+        return redirect()->route('enroll.myCommittees');
     }
 
-    public function handleLogin(Course $course)
+    public function handleLogin(Committee $committee)
     {
-        return redirect()->route('enroll.create', $course->id);
+        return redirect()->route('enroll.create', $committee->id);
     }
 
-    public function myCourses()
+    public function myCommittees()
     {
-        $breadcrumb = "My Courses";
+        $breadcrumb = "My Committees";
 
         $userEnrollments = auth()->user()
             ->enrollments()
-            ->with('course.institution')
+            ->with('committee.portfolio')
             ->orderBy('id', 'desc')
             ->paginate(6);
 
-        return view('enrollment.courses', compact(['breadcrumb', 'userEnrollments']));
+        return view('enrollment.committees', compact(['breadcrumb', 'userEnrollments']));
     }
 }

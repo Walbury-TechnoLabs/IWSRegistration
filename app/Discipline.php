@@ -19,13 +19,22 @@ class Discipline extends Model
 
     protected $fillable = [
         'name',
+        'price',
         'created_at',
         'updated_at',
         'deleted_at',
+        'description',
+
     ];
 
-    public function courses()
+    public function committees()
     {
-        return $this->belongsToMany(Course::class);
+        return $this->belongsToMany(Committee::class);
     }
+    
+    public function getPrice()
+    {
+        return $this->price ? '$'.number_format($this->price, 2) : 'FREE';
+    }
+
 }

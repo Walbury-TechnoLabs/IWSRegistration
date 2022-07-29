@@ -27,16 +27,29 @@
                     @endif
                 </div>
             @endif
-            <div class="form-group {{ $errors->has('course_id') ? 'has-error' : '' }}">
-                <label for="course">{{ trans('cruds.enrollment.fields.course') }}*</label>
-                <select name="course_id" id="course" class="form-control select2" required>
-                    @foreach($courses as $id => $course)
-                        <option value="{{ $id }}" {{ (isset($enrollment) && $enrollment->course ? $enrollment->course->id : old('course_id')) == $id ? 'selected' : '' }}>{{ $course }}</option>
+            <div class="form-group {{ $errors->has('committee_id') ? 'has-error' : '' }}">
+                <label for="committee">{{ trans('cruds.enrollment.fields.committee') }}*</label>
+                <select name="committee_id" id="committee" class="form-control select2" required>
+                    @foreach($committees as $id => $committee)
+                        <option value="{{ $id }}" {{ (isset($enrollment) && $enrollment->committee ? $enrollment->committee->id : old('committee_id')) == $id ? 'selected' : '' }}>{{ $committee }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('course_id'))
+                @if($errors->has('committee_id'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('course_id') }}
+                        {{ $errors->first('committee_id') }}
+                    </em>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('portfolio_id') ? 'has-error' : '' }}">
+                <label for="portfolio">{{ trans('cruds.enrollment.fields.portfolio') }}*</label>
+                <select name="portfolio_id" id="portfolio" class="form-control select2" required>
+                    @foreach($portfolios as $id => $portfolio)
+                        <option value="{{ $id }}" {{ (isset($enrollment) && $enrollment->portfolio ? $enrollment->portfolio->id : old('portfolio_id')) == $id ? 'selected' : '' }}>{{ $portfolio }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('portfolio_id'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('portfolio_id') }}
                     </em>
                 @endif
             </div>

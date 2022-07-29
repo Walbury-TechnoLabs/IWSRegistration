@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Course;
+use App\Committee;
+use App\Portfolio;
 use App\Enrollment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyEnrollmentRequest;
@@ -30,9 +31,11 @@ class EnrollmentsController extends Controller
 
         $users = User::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $courses = Course::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $committees = Committee::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.enrollments.create', compact('users', 'courses'));
+        $portfolios = Portfolio::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.enrollments.create', compact('users', 'committees', 'portfolios'));
     }
 
     public function store(StoreEnrollmentRequest $request)
@@ -48,11 +51,13 @@ class EnrollmentsController extends Controller
 
         $users = User::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $courses = Course::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $committees = Committee::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $enrollment->load('user', 'course');
+        $portfolios = Portfolio::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.enrollments.edit', compact('users', 'courses', 'enrollment'));
+        $enrollment->load('user', 'committee', 'portfolio');
+
+        return view('admin.enrollments.edit', compact('users', 'committees', 'portfolios', 'enrollment'));
     }
 
     public function update(UpdateEnrollmentRequest $request, Enrollment $enrollment)
@@ -66,7 +71,7 @@ class EnrollmentsController extends Controller
     {
         abort_if(Gate::denies('enrollment_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $enrollment->load('user', 'course');
+        $enrollment->load('user', 'committee', 'portfolio');
 
         return view('admin.enrollments.show', compact('enrollment'));
     }

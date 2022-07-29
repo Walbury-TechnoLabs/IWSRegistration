@@ -13,9 +13,13 @@ class AddRelationshipFieldsToEnrollmentsTable extends Migration
 
             $table->foreign('user_id', 'user_fk_538851')->references('id')->on('users');
 
-            $table->unsignedInteger('course_id');
+            $table->unsignedInteger('committee_id');
 
-            $table->foreign('course_id', 'course_fk_538852')->references('id')->on('courses');
+            $table->foreign('committee_id', 'committee_fk_538852')->references('id')->on('committees');
+            
+            $table->unsignedInteger('portfolio_id')->nullable();
+
+            $table->foreign('portfolio_id', 'portfolio_fk_538818')->references('id')->on('portfolios');
         });
     }
 }

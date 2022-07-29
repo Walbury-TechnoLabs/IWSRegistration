@@ -28,10 +28,18 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.enrollment.fields.course') }}
+                            {{ trans('cruds.enrollment.fields.committee') }}
                         </th>
                         <td>
-                            {{ $enrollment->course->name ?? '' }}
+                            {{ $enrollment->committee->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.enrollment.fields.portfolio') }}
+                        </th>
+                        <td>
+                            {{ $enrollment->portfolio->name ?? '' }}
                         </td>
                     </tr>
                     <tr>

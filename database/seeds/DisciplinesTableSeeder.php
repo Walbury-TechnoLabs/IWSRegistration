@@ -12,9 +12,24 @@ class DisciplinesTableSeeder extends Seeder
      */
     public function run()
     {
-        $disciplines = ['Web Development', 'Design', 'Wordpress'];
-
-        foreach($disciplines as $discipline)
-            Discipline::create(['name' => $discipline]);
+        $faker = Faker\Factory::create();
+        $disciplines = [
+            [
+                    'name' => 'IWS Delegation',
+                    'description' => $faker->paragraph,
+                    'price' => 1800
+            ],
+            [
+                    'name' => 'Campus Ambassador',
+                    'description' => $faker->paragraph,
+                    'price' => 500
+            ],
+        ];
+        foreach($disciplines as $id=>$disciplines)
+        {
+            $id++;
+            $discipline = Discipline::create($disciplines);
+            
+        }
     }
 }
