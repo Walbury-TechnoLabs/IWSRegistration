@@ -6,30 +6,30 @@
         <div class="row justify-content-center">
             <div class="col-xl-5">
                 <div class="section_tittle text-center">
-                    <p>Courses</p>
-                    <h2>Newest Courses</h2>
-                </div>
+                    <p>Committees</p>
+                    <h2>Newest Committees</h2>
+                </div> 
             </div>
         </div>
         <div class="row">
-            @foreach($newestCourses as $course)
+            @foreach($newestCommittees as $committee)
                 <div class="col-sm-6 col-lg-4">
                     <div class="single_special_cource">
-                        <img src="{{ optional($course->photo)->getUrl() ?? asset('img/no_image.png') }}" class="special_img" alt="">
+                        <img src="{{ optional($committee->photo)->getUrl() ?? asset('img/no_image.png') }}" class="special_img" alt="">
                         <div class="special_cource_text">
-                            @foreach($course->disciplines as $discipline)
-                                <a href="{{ route('courses.index') }}?discipline={{ $discipline->id }}" class="btn_4 mr-1 mb-1">{{ $discipline->name }}</a>
+                            @foreach($committee->disciplines as $discipline)
+                                <a href="{{ route('committees.index') }}?discipline={{ $discipline->id }}" class="btn_4 mr-1 mb-1">{{ $discipline->name }}</a>
                             @endforeach
-                            <h4>{{ $course->getPrice() }}</h4>
-                            <a href="{{ route('courses.show', $course->id) }}"><h3>{{ $course->name }}</h3></a>
-                            <p>{{ Str::limit($course->description, 100) }}</p>
-                            @if($course->institution)
+                            <h4>{{ $committee->getPrice() }}</h4>
+                            <a href="{{ route('committees.show', $committee->id) }}"><h3>{{ $committee->name }}</h3></a>
+                            <p>{{ Str::limit($committee->description, 100) }}</p>
+                            @if($committee->portfolio)
                                 <div class="author_info">
                                     <div class="author_img">
-                                        <img src="{{ optional($course->institution->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
+                                        <img src="{{ optional($committee->portfolio->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
                                         <div class="author_info_text">
-                                            <p>Institution</p>
-                                            <h5><a href="{{ route('courses.index') }}?institution={{ $course->institution->id }}">{{ $course->institution->name }}</a></h5>
+                                            <p>Portfolio</p>
+                                            <h5><a href="{{ route('committees.index') }}?portfolio={{ $committee->portfolio->id }}">{{ $committee->portfolio->name }}</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -47,22 +47,22 @@
         <div class="row justify-content-center">
             <div class="col-xl-5">
                 <div class="section_tittle text-center">
-                    <p>Institutions</p>
-                    <h2>Random Institutions</h2>
+                    <p>Portfolios</p>
+                    <h2>Random Portfolios</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            @foreach($randomInstitutions as $institution)
+            @foreach($randomPortfolios as $portfolio)
                 <div class="col-sm-6 col-lg-4 col-xl-4">
                     <div class="single-home-blog">
                         <div class="card">
-                            <img src="{{ optional($institution->logo)->url ?? asset('img/no_image.png') }}" class="card-img-top" alt="{{ $institution->name }}">
+                            <img src="{{ optional($portfolio->logo)->url ?? asset('img/no_image.png') }}" class="card-img-top" alt="{{ $portfolio->name }}">
                             <div class="card-body">
-                                <a href="{{ route('courses.index') }}?institution={{ $institution->id }}">
-                                    <h5 class="card-title">{{ $institution->name }}</h5>
+                                <a href="{{ route('committees.index') }}?portfolio={{ $portfolio->id }}">
+                                    <h5 class="card-title">{{ $portfolio->name }}</h5>
                                 </a>
-                                <p>{{ Str::limit($institution->description, 100) }}</p>
+                                <p>{{ Str::limit($portfolio->description, 100) }}</p>
                             </div>
                         </div>
                     </div>
