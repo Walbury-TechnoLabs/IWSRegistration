@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Course;
+use App\Portfolio;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyCourseRequest extends FormRequest
+class MassDestroyPortfolioRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('course_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('portfolio_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -20,7 +20,7 @@ class MassDestroyCourseRequest extends FormRequest
     {
         return [
             'ids'   => 'required|array',
-            'ids.*' => 'exists:courses,id',
+            'ids.*' => 'exists:portfolios,id',
         ];
     }
 }

@@ -63,8 +63,8 @@ return [
             'updated_at_helper'        => '',
             'deleted_at'               => 'Deleted at',
             'deleted_at_helper'        => '',
-            'institution'              => 'Institution',
-            'institution_helper'       => '',
+            'portfolio'              => 'Portfolio',
+            'portfolio_helper'       => '',
         ],
     ],
     'discipline'     => [
@@ -83,9 +83,9 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'institution'    => [
-        'title'          => 'Institutions',
-        'title_singular' => 'Institution',
+    'portfolio'    => [
+        'title'          => 'Portfolios',
+        'title_singular' => 'Portfolio',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',
@@ -103,9 +103,9 @@ return [
             'deleted_at_helper'  => '',
         ],
     ],
-    'course'         => [
-        'title'          => 'Courses',
-        'title_singular' => 'Course',
+    'committee'         => [
+        'title'          => 'Committees',
+        'title_singular' => 'Committee',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',
@@ -115,8 +115,8 @@ return [
             'description_helper' => '',
             'photo'              => 'Photo',
             'photo_helper'       => '',
-            'institution'        => 'Institution',
-            'institution_helper' => '',
+            'portfolio'        => 'Portfolio',
+            'portfolio_helper' => '',
             'price'              => 'Price',
             'price_helper'       => '',
             'disciplines'        => 'Disciplines',
@@ -137,8 +137,8 @@ return [
             'id_helper'         => '',
             'user'              => 'User',
             'user_helper'       => '',
-            'course'            => 'Course',
-            'course_helper'     => '',
+            'committee'            => 'Committee',
+            'committee_helper'     => '',
             'status'            => 'Status',
             'status_helper'     => '',
             'created_at'        => 'Created at',

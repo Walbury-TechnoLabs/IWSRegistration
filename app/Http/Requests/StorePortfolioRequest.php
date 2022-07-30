@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Institution;
+use App\Portfolio;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class UpdateInstitutionRequest extends FormRequest
+class StorePortfolioRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('institution_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('portfolio_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -21,7 +21,7 @@ class UpdateInstitutionRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'unique:institutions,name,' . request()->route('institution')->id,
+                'unique:portfolios',
             ],
         ];
     }

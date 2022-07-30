@@ -23,7 +23,7 @@ class StoreEnrollmentRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'course_id' => [
+            'committee_id' => [
                 'required',
                 'integer',
             ],

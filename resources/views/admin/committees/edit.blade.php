@@ -48,33 +48,33 @@
                     {{ trans('cruds.committee.fields.photo_helper') }}
                 </p>
             </div>
-           <!--  @if(auth()->user()->isInstitution())
-                <input type="hidden" name="institution_id" value="{{ auth()->user()->institution_id }}">
+           <!--  @if(auth()->user()->isPortfolio())
+                <input type="hidden" name="portfolio_id" value="{{ auth()->user()->portfolio_id }}">
             @else
-                <div class="form-group {{ $errors->has('institution_id') ? 'has-error' : '' }}">
-                    <label for="institution">{{ trans('cruds.committee.fields.institution') }}*</label>
-                    <select name="institution_id" id="institution" class="form-control select2" required>
-                        @foreach($institutions as $id => $institution)
-                            <option value="{{ $id }}" {{ (isset($committee) && $committee->institution ? $committee->institution->id : old('institution_id')) == $id ? 'selected' : '' }}>{{ $institution }}</option>
+                <div class="form-group {{ $errors->has('portfolio_id') ? 'has-error' : '' }}">
+                    <label for="portfolio">{{ trans('cruds.committee.fields.portfolio') }}*</label>
+                    <select name="portfolio_id" id="portfolio" class="form-control select2" required>
+                        @foreach($portfolios as $id => $portfolio)
+                            <option value="{{ $id }}" {{ (isset($committee) && $committee->portfolio ? $committee->portfolio->id : old('portfolio_id')) == $id ? 'selected' : '' }}>{{ $portfolio }}</option>
                         @endforeach
                     </select>
-                    @if($errors->has('institution_id'))
+                    @if($errors->has('portfolio_id'))
                         <em class="invalid-feedback">
-                            {{ $errors->first('institution_id') }}
+                            {{ $errors->first('portfolio_id') }}
                         </em>
                     @endif
                 </div>
             @endif -->
             <!-- <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-                <label for="price">{{ trans('cruds.course.fields.price') }}</label>
-                <input type="number" id="price" name="price" class="form-control" value="{{ old('price', isset($course) ? $course->price : '') }}" step="0.01">
+                <label for="price">{{ trans('cruds.committee.fields.price') }}</label>
+                <input type="number" id="price" name="price" class="form-control" value="{{ old('price', isset($committee) ? $committee->price : '') }}" step="0.01">
                 @if($errors->has('price'))
                     <em class="invalid-feedback">
                         {{ $errors->first('price') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.course.fields.price_helper') }}
+                    {{ trans('cruds.committee.fields.price_helper') }}
                 </p>
             </div> -->
             <div class="form-group {{ $errors->has('disciplines') ? 'has-error' : '' }}">

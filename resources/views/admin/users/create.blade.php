@@ -63,16 +63,16 @@
                     {{ trans('cruds.user.fields.roles_helper') }}
                 </p>
             </div>
-            <!-- <div class="form-group {{ $errors->has('institution_id') ? 'has-error' : '' }}" id="institutionGroup" style="{{ in_array(2, old('roles', [])) ? '' : 'display:none'}}">
-                <label for="institution">{{ trans('cruds.user.fields.institution') }}</label>
-                <select name="institution_id" id="institution" class="form-control select2">
-                    @foreach($institutions as $id => $institution)
-                        <option value="{{ $id }}" {{ (isset($user) && $user->institution ? $user->institution->id : old('institution_id')) == $id ? 'selected' : '' }}>{{ $institution }}</option>
+            <!-- <div class="form-group {{ $errors->has('portfolio_id') ? 'has-error' : '' }}" id="portfolioGroup" style="{{ in_array(2, old('roles', [])) ? '' : 'display:none'}}">
+                <label for="portfolio">{{ trans('cruds.user.fields.portfolio') }}</label>
+                <select name="portfolio_id" id="portfolio" class="form-control select2">
+                    @foreach($portfolios as $id => $portfolio)
+                        <option value="{{ $id }}" {{ (isset($user) && $user->portfolio ? $user->portfolio->id : old('portfolio_id')) == $id ? 'selected' : '' }}>{{ $portfolio }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('institution_id'))
+                @if($errors->has('portfolio_id'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('institution_id') }}
+                        {{ $errors->first('portfolio_id') }}
                     </em>
                 @endif
             </div> -->
@@ -90,10 +90,10 @@
 <script>
 $(document).ready(function() {
     $('#roles').change(function() {
-        if($("#roles option:selected:contains('Institution')").val())
-            $("#institutionGroup:hidden").show(150);
+        if($("#roles option:selected:contains('Portfolio')").val())
+            $("#portfolioGroup:hidden").show(150);
         else
-            $("#institutionGroup:visible").hide(150);
+            $("#portfolioGroup:visible").hide(150);
     });
 });
 </script>

@@ -54,10 +54,10 @@
                     </tr>
                     <!-- <tr>
                         <th>
-                            {{ trans('cruds.user.fields.institution') }}
+                            {{ trans('cruds.user.fields.portfolio') }}
                         </th>
                         <td>
-                            {{ $user->institution->name ?? '' }}
+                            {{ $user->portfolio->name ?? '' }}
                         </td>
                     </tr> -->
                 </tbody>

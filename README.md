@@ -8,7 +8,7 @@ We implemented the task with the help of our [QuickAdminPanel](https://quickadmi
 
 ---
 
-![Laravel students courses list](https://laraveldaily.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-05-at-9.46.36-AM.png)
+![Laravel students committees list](https://laraveldaily.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-05-at-9.46.36-AM.png)
 
 ![Laravel students registration form](https://laraveldaily.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-05-at-9.48.27-AM.png)
 
@@ -32,7 +32,7 @@ Created with [MySQL Workbench](https://www.mysql.com/products/workbench/) - see 
 - Run __php artisan key:generate__
 - Run __php artisan migrate --seed__ (it has some seeded data for your testing)
 - That's it: launch the main URL. 
-- You can login to adminpanel by going go `/login` URL and login with credentials __admin@admin.com__ - __password__ or institution user __institution@institution.com__ - __password__ 
+- You can login to adminpanel by going go `/login` URL and login with credentials __admin@admin.com__ - __password__ or portfolio user __portfolio@portfolio.com__ - __password__ 
 
 ---
 
@@ -48,4 +48,4 @@ Basically, feel free to use and re-use any way you want.
 - Read our [Blog with Laravel Tutorials](https://laraveldaily.com)
 - FREE E-book: [50 Laravel Quick Tips (and counting)](https://laraveldaily.com/free-e-book-40-laravel-quick-tips-and-counting/)
 - Subscribe to our [YouTube channel Laravel Business](https://www.youtube.com/channel/UCTuplgOBi6tJIlesIboymGA)
-- Enroll in our [Laravel Online Courses](https://laraveldaily.teachable.com/)
+- Enroll in our [Laravel Online Committees](https://laraveldaily.teachable.com/)

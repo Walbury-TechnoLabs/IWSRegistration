@@ -21,11 +21,11 @@
             <div class="col-lg-4 right-contents">
                 <div class="sidebar_top">
                     <!-- <ul>
-                        @if($committee->institution)
+                        @if($committee->portfolio)
                             <li>
                                 <a class="justify-content-between d-flex">
-                                    <p>Institution</p>
-                                    <span class="color">{{ $committee->institution->name }}</span>
+                                    <p>Portfolio</p>
+                                    <span class="color">{{ $committee->portfolio->name }}</span>
                                 </a>
                             </li>
                         @endif

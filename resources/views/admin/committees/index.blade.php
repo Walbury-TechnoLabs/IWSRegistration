@@ -35,7 +35,7 @@
                             {{ trans('cruds.committee.fields.photo') }}
                         </th>
                         <!-- <th>
-                            {{ trans('cruds.committee.fields.institution') }}
+                            {{ trans('cruds.committee.fields.portfolio') }}
                         </th> -->
                         <!-- <th>
                             {{ trans('cruds.committee.fields.price') }}
@@ -71,10 +71,10 @@
                                 @endif
                             </td>
                             <!-- <td>
-                                {{ $committee->institution->name ?? '' }}
+                                {{ $committee->portfolio->name ?? '' }}
                             </td> -->
                             <!-- <td>
-                                {{ $course->price ?? '' }}
+                                {{ $committee->price ?? '' }}
                             </td> -->
                             <td>
                                 @foreach($committee->disciplines as $key => $item)

@@ -38,7 +38,7 @@
                             {{ trans('cruds.user.fields.roles') }}
                         </th>
                         <!-- <th>
-                            {{ trans('cruds.user.fields.institution') }}
+                            {{ trans('cruds.user.fields.portfolio') }}
                         </th> -->
                         <th>
                             &nbsp;
@@ -69,7 +69,7 @@
                                 @endforeach
                             </td>
                             <!-- <td>
-                                {{ $user->institution->name ?? '' }}
+                                {{ $user->portfolio->name ?? '' }}
                             </td> -->
                             <td>
                                 @can('user_show')

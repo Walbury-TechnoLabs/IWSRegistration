@@ -48,10 +48,10 @@
                     </tr>
                     <!-- <tr>
                         <th>
-                            {{ trans('cruds.committee.fields.institution') }}
+                            {{ trans('cruds.committee.fields.portfolio') }}
                         </th>
                         <td>
-                            {{ $committee->institution->name ?? '' }}
+                            {{ $committee->portfolio->name ?? '' }}
                         </td>
                     </tr> -->
                    <!--  <tr>

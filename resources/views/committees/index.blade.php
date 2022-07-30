@@ -22,13 +22,13 @@
                             <!-- <h4>{{ $committe->getPrice() }}</h4> -->
                             <a href="{{ route('committees.show', $committe->id) }}"><h3>{{ $committe->name }}</h3></a>
                             <p>{{ Str::limit($committe->description, 100) }}</p>
-                            <!-- @if($committe->institution)
+                            <!-- @if($committe->portfolio)
                                 <div class="author_info">
                                     <div class="author_img">
-                                        <img src="{{ optional($committe->institution->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
+                                        <img src="{{ optional($committe->portfolio->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
                                         <div class="author_info_text">
-                                            <p>Institution</p>
-                                            <h5><a href="{{ route('committees.index') }}?institution={{ $committe->institution->id }}">{{ $committe->institution->name }}</a></h5>
+                                            <p>Portfolio</p>
+                                            <h5><a href="{{ route('committees.index') }}?portfolio={{ $committe->portfolio->id }}">{{ $committe->portfolio->name }}</a></h5>
                                         </div>
                                     </div>
                                 </div>

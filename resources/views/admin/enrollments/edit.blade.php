@@ -10,7 +10,7 @@
         <form action="{{ route("admin.enrollments.update", [$enrollment->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            @if(auth()->user()->isInstitution())
+            @if(auth()->user()->isPortfolio())
                 <input type="hidden" name="user_id" value="{{ (isset($enrollment) && $enrollment->user) ? $enrollment->user->id : '' }}">
             @else
                 <div class="form-group {{ $errors->has('user_id') ? 'has-error' : '' }}">

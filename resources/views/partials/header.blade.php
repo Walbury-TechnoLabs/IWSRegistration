@@ -18,7 +18,7 @@
                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('courses.index') }}">Courses</a>
+                                <a class="nav-link" href="{{ route('committees.index') }}">Committees</a>
                             </li>
                             @if($menuDisciplines->count())
                                 <li class="nav-item dropdown">
@@ -27,26 +27,26 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @foreach($menuDisciplines as $id=>$discipline)
-                                            <a class="dropdown-item" href="{{ route('courses.index') }}?discipline={{ $id }}">{{ $discipline }}</a>
+                                            <a class="dropdown-item" href="{{ route('committees.index') }}?discipline={{ $id }}">{{ $discipline }}</a>
                                         @endforeach
                                     </div>
                                 </li>
                             @endif
-                            @if($menuInstitutions->count())
+                            @if($menuPortfolios->count())
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Institutions
+                                        Portfolios
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @foreach($menuInstitutions as $id=>$institution)
-                                            <a class="dropdown-item" href="{{ route('courses.index') }}?institution={{ $id }}">{{ $institution }}</a>
+                                        @foreach($menuPortfolios as $id=>$portfolio)
+                                            <a class="dropdown-item" href="{{ route('committees.index') }}?portfolio={{ $id }}">{{ $portfolio }}</a>
                                         @endforeach
                                     </div>
                                 </li>
                             @endif
                             @auth
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('enroll.myCourses') }}">My Courses</a>
+                                    <a class="nav-link" href="{{ route('enroll.myCommittees') }}">My Committees</a>
                                 </li>
                                 <li class="d-none d-lg-block">
                                     <a class="btn_1" href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">Logout</a>

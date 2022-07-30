@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Institution;
+use App\Committee;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyInstitutionRequest extends FormRequest
+class MassDestroyCommitteeRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('institution_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('committee_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -20,7 +20,7 @@ class MassDestroyInstitutionRequest extends FormRequest
     {
         return [
             'ids'   => 'required|array',
-            'ids.*' => 'exists:institutions,id',
+            'ids.*' => 'exists:committees,id',
         ];
     }
 }

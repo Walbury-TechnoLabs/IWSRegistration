@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Course;
+use App\Committee;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class StoreCourseRequest extends FormRequest
+class UpdateCommitteeRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('course_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('committee_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -21,9 +21,9 @@ class StoreCourseRequest extends FormRequest
         return [
             'name'           => [
                 'required',
-                'unique:courses',
+                'unique:committees,name,' . request()->route('committee')->id,
             ],
-            'institution_id' => [
+            'portfolio_id' => [
                 'required',
                 'integer',
             ],

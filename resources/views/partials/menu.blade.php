@@ -62,23 +62,23 @@
                     </a>
                 </li>
             @endcan
-            @can('institution_access')
+            @can('portfolio_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.institutions.index") }}" class="nav-link {{ request()->is('admin/institutions') || request()->is('admin/institutions/*') ? 'active' : '' }}">
+                    <a href="{{ route("admin.portfolios.index") }}" class="nav-link {{ request()->is('admin/portfolios') || request()->is('admin/portfolios/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-university nav-icon">
 
                         </i>
-                        {{ trans('cruds.institution.title') }}
+                        {{ trans('cruds.portfolio.title') }}
                     </a>
                 </li>
             @endcan
-            @can('course_access')
+            @can('committee_access') 
                 <li class="nav-item">
-                    <a href="{{ route("admin.courses.index") }}" class="nav-link {{ request()->is('admin/courses') || request()->is('admin/courses/*') ? 'active' : '' }}">
+                    <a href="{{ route("admin.committees.index") }}" class="nav-link {{ request()->is('admin/committees') || request()->is('admin/committees/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-certificate nav-icon">
 
                         </i>
-                        {{ trans('cruds.course.title') }}
+                        {{ trans('cruds.committee.title') }}
                     </a>
                 </li>
             @endcan

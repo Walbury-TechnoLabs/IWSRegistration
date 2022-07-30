@@ -22,13 +22,13 @@
                             <h4>{{ $enrollment->portfolio->getPrice() }}</h4>
                             <a href="{{ route('portfolios.show', $enrollment->portfolio->id) }}"><h3>{{ $enrollment->portfolio->name }}</h3></a>
                             <p>{{ Str::limit($enrollment->portfolio->description, 100) }}</p>
-                            @if($enrollment->portfolio->institution)
+                            @if($enrollment->portfolio->portfolio)
                                 <div class="author_info">
                                     <div class="author_img">
-                                        <img src="{{ optional($enrollment->portfolio->institution->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
+                                        <img src="{{ optional($enrollment->portfolio->portfolio->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
                                         <div class="author_info_text">
-                                            <p>Institution</p>
-                                            <h5><a href="{{ route('portfolios.index') }}?institution={{ $enrollment->portfolio->institution->id }}">{{ $enrollment->portfolio->institution->name }}</a></h5>
+                                            <p>Portfolio</p>
+                                            <h5><a href="{{ route('portfolios.index') }}?portfolio={{ $enrollment->portfolio->portfolio->id }}">{{ $enrollment->portfolio->portfolio->name }}</a></h5>
                                         </div>
                                     </div>
                                 </div>
