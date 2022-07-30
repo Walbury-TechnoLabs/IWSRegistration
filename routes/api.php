@@ -13,13 +13,13 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Disciplines
     Route::apiResource('disciplines', 'DisciplinesApiController');
 
-    // Institutions
-    Route::post('institutions/media', 'InstitutionsApiController@storeMedia')->name('institutions.storeMedia');
-    Route::apiResource('institutions', 'InstitutionsApiController');
+    // Portfolios
+    Route::post('portfolios/media', 'PortfoliosApiController@storeMedia')->name('portfolios.storeMedia');
+    Route::apiResource('portfolios', 'PortfoliosApiController');
 
-    // Courses
-    Route::post('courses/media', 'CoursesApiController@storeMedia')->name('courses.storeMedia');
-    Route::apiResource('courses', 'CoursesApiController');
+    // Committees
+    Route::post('committees/media', 'CommitteesApiController@storeMedia')->name('committees.storeMedia');
+    Route::apiResource('committees', 'CommitteesApiController');
 
     // Enrollments
     Route::apiResource('enrollments', 'EnrollmentsApiController');

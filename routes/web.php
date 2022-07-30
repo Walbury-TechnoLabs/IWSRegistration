@@ -11,11 +11,11 @@ Route::get('/home', function () {
 Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('enroll/login/{course}', 'EnrollmentController@handleLogin')->name('enroll.handleLogin')->middleware('auth');
-Route::get('enroll/{course}', 'EnrollmentController@create')->name('enroll.create');
-Route::post('enroll/{course}', 'EnrollmentController@store')->name('enroll.store');
-Route::get('my-courses', 'EnrollmentController@myCourses')->name('enroll.myCourses')->middleware('auth');
-Route::resource('courses', 'CourseController')->only(['index', 'show']);
+Route::get('enroll/login/{committee}', 'EnrollmentController@handleLogin')->name('enroll.handleLogin')->middleware('auth');
+Route::get('enroll/{committee}', 'EnrollmentController@create')->name('enroll.create');
+Route::post('enroll/{committee}', 'EnrollmentController@store')->name('enroll.store');
+Route::get('my-committees', 'EnrollmentController@myCommittees')->name('enroll.myCommittees')->middleware('auth');
+Route::resource('committees', 'CommitteeController')->only(['index', 'show']);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
@@ -35,15 +35,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('disciplines/destroy', 'DisciplinesController@massDestroy')->name('disciplines.massDestroy');
     Route::resource('disciplines', 'DisciplinesController');
 
-    // Institutions
-    Route::delete('institutions/destroy', 'InstitutionsController@massDestroy')->name('institutions.massDestroy');
-    Route::post('institutions/media', 'InstitutionsController@storeMedia')->name('institutions.storeMedia');
-    Route::resource('institutions', 'InstitutionsController');
+    // Portfolios
+    Route::delete('portfolios/destroy', 'PortfoliosController@massDestroy')->name('portfolios.massDestroy');
+    Route::post('portfolios/media', 'PortfoliosController@storeMedia')->name('portfolios.storeMedia');
+    Route::resource('portfolios', 'PortfoliosController');
 
-    // Courses
-    Route::delete('courses/destroy', 'CoursesController@massDestroy')->name('courses.massDestroy');
-    Route::post('courses/media', 'CoursesController@storeMedia')->name('courses.storeMedia');
-    Route::resource('courses', 'CoursesController');
+    // Committees
+    Route::delete('committees/destroy', 'CommitteesController@massDestroy')->name('committees.massDestroy');
+    Route::post('committees/media', 'CommitteesController@storeMedia')->name('committees.storeMedia');
+    Route::resource('committees', 'CommitteesController');
 
     // Enrollments
     Route::delete('enrollments/destroy', 'EnrollmentsController@massDestroy')->name('enrollments.massDestroy');
