@@ -16,7 +16,6 @@ class EnrollmentsApiController extends Controller
     public function index()
     {
         abort_if(Gate::denies('enrollment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         return new EnrollmentResource(Enrollment::with(['user', 'committee'])->get());
     }
 

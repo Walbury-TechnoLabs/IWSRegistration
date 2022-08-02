@@ -60,7 +60,7 @@ class Enrollment extends Model
 
     public function getCommitteeNameAttribute()
     {
-        return $this->committee->name;
+        return $this->committee && $this->committee->name ? $this->committee->name : '';
     }
 
 
@@ -71,6 +71,6 @@ class Enrollment extends Model
 
     public function getPortfolioNameAttribute()
     {
-        return $this->portfolio->name;
+        return $this->portfolio && $this->portfolio->name ? $this->portfolio->name : '' ;
     }
 }

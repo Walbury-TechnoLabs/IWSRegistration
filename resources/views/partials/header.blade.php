@@ -27,6 +27,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @foreach($menuDisciplines as $id=>$discipline)
+                                            {{-- <a class="dropdown-item" href="{{ route('committees.index') }}?discipline={{ $id }}">{{ $discipline }}</a> --}}
                                             <a class="dropdown-item" href="{{ route('committees.index') }}?discipline={{ $id }}">{{ $discipline }}</a>
                                         @endforeach
                                     </div>

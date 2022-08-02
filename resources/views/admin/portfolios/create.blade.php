@@ -60,7 +60,7 @@
 @section('scripts')
 <script>
     Dropzone.options.logoDropzone = {
-    url: '{{ route('admin.portfolio.storeMedia') }}',
+    url: '{{ route('admin.portfolios.storeMedia') }}',
     maxFilesize: 2, // MB
     acceptedFiles: '.jpeg,.jpg,.png,.gif',
     maxFiles: 1,

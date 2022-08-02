@@ -15,7 +15,7 @@
                             </div>
                         @endif
 
-                        @if(!$enrollment_count)
+                        @if(!auth()->user()->roles[0]->id == 1 && !$enrollment_count)
                             <form>
                                 <div class="row">
                                     <div class="col-12">

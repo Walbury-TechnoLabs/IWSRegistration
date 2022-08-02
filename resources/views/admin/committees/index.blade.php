@@ -34,12 +34,6 @@
                         <th>
                             {{ trans('cruds.committee.fields.photo') }}
                         </th>
-                        <!-- <th>
-                            {{ trans('cruds.committee.fields.portfolio') }}
-                        </th> -->
-                        <!-- <th>
-                            {{ trans('cruds.committee.fields.price') }}
-                        </th> -->
                         <th>
                             {{ trans('cruds.committee.fields.disciplines') }}
                         </th>
@@ -70,12 +64,6 @@
                                     </a>
                                 @endif
                             </td>
-                            <!-- <td>
-                                {{ $committee->portfolio->name ?? '' }}
-                            </td> -->
-                            <!-- <td>
-                                {{ $committee->price ?? '' }}
-                            </td> -->
                             <td>
                                 @foreach($committee->disciplines as $key => $item)
                                     <span class="badge badge-info">{{ $item->name }}</span>
