@@ -46,22 +46,6 @@
                             @endif
                         </td>
                     </tr>
-                    <!-- <tr>
-                        <th>
-                            {{ trans('cruds.committee.fields.portfolio') }}
-                        </th>
-                        <td>
-                            {{ $committee->portfolio->name ?? '' }}
-                        </td>
-                    </tr> -->
-                   <!--  <tr>
-                        <th>
-                            {{ trans('cruds.committee.fields.price') }}
-                        </th>
-                        <td>
-                            ${{ $committee->price }}
-                        </td>
-                    </tr> -->
                     <tr>
                         <th>
                             Disciplines

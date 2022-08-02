@@ -23,10 +23,6 @@ class StoreCommitteeRequest extends FormRequest
                 'required',
                 'unique:committees',
             ],
-            'portfolio_id' => [
-                'required',
-                'integer',
-            ],
             'disciplines.*'  => [
                 'integer',
             ],

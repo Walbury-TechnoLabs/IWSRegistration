@@ -23,10 +23,6 @@ class UpdateCommitteeRequest extends FormRequest
                 'required',
                 'unique:committees,name,' . request()->route('committee')->id,
             ],
-            'portfolio_id' => [
-                'required',
-                'integer',
-            ],
             'disciplines.*'  => [
                 'integer',
             ],

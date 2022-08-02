@@ -48,35 +48,7 @@
                     {{ trans('cruds.committee.fields.photo_helper') }}
                 </p>
             </div>
-           <!--  @if(auth()->user()->isPortfolio())
-                <input type="hidden" name="portfolio_id" value="{{ auth()->user()->portfolio_id }}">
-            @else
-                <div class="form-group {{ $errors->has('portfolio_id') ? 'has-error' : '' }}">
-                    <label for="portfolio">{{ trans('cruds.committee.fields.portfolio') }}*</label>
-                    <select name="portfolio_id" id="portfolio" class="form-control select2" required>
-                        @foreach($portfolios as $id => $portfolio)
-                            <option value="{{ $id }}" {{ (isset($committee) && $committee->portfolio ? $committee->portfolio->id : old('portfolio_id')) == $id ? 'selected' : '' }}>{{ $portfolio }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('portfolio_id'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('portfolio_id') }}
-                        </em>
-                    @endif
-                </div>
-            @endif -->
-            <!-- <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-                <label for="price">{{ trans('cruds.committee.fields.price') }}</label>
-                <input type="number" id="price" name="price" class="form-control" value="{{ old('price', isset($committee) ? $committee->price : '') }}" step="0.01">
-                @if($errors->has('price'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('price') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.committee.fields.price_helper') }}
-                </p>
-            </div> -->
+
             <div class="form-group {{ $errors->has('disciplines') ? 'has-error' : '' }}">
                 <label for="disciplines">{{ trans('cruds.committee.fields.disciplines') }}
                     <span class="btn btn-info btn-xs select-all">{{ trans('global.select_all') }}</span>
