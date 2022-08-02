@@ -8,7 +8,7 @@ Route::get('/home', function () {
     return redirect()->route('admin.home');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('enroll/login/{committee}', 'EnrollmentController@handleLogin')->name('enroll.handleLogin')->middleware('auth');

@@ -21,7 +21,7 @@
                                     <div class="col-12">
                                         <div class='row'>
                                             <div class="col-4">
-                                                Committee 1 Preferance
+                                                Committee Preferance 1
                                             </div>
                                             <div class="col-4">
                                                 Select Profolio
@@ -35,7 +35,7 @@
                                         <div class='row'>
                                             <div class="col-4">
                                                 <select class="browser-default custom-select dropdown" name='firstCommittee'>
-                                                    <option value="0" selected>Committee 1 Preferance</option>
+                                                    <option value="0" selected>Committee Preferance 1</option>
                                                     @if (isset($committees) && count($committees))
                                                         @foreach ($committees as $committee)
                                                             <option value='{{ $committee->id }}'>{{ $committee->name }}
@@ -63,7 +63,7 @@
                                     <div class="col-12">
                                         <div class='row'>
                                             <div class="col-4">
-                                                Committee 1 Preferance
+                                                Committee Preferance 2
                                             </div>
                                             <div class="col-4">
                                                 Select Profolio
@@ -77,7 +77,7 @@
                                         <div class='row'>
                                             <div class="col-4">
                                                 <select class="browser-default custom-select dropdown" name='secondCommittee'>
-                                                    <option value="0" selected>Committee 2 Preferance</option>
+                                                    <option value="0" selected>Committee Preferance 2</option>
                                                     @if (isset($committees) && count($committees))
                                                         @foreach ($committees as $committee)
                                                             <option value='{{ $committee->id }}'>{{ $committee->name }}
@@ -105,7 +105,7 @@
                                     <div class="col-12">
                                         <div class='row'>
                                             <div class="col-4">
-                                                Committee 1 Preferance
+                                                Committee Preferance 3
                                             </div>
                                             <div class="col-4">
                                                 Select Profolio
@@ -119,7 +119,7 @@
                                         <div class='row'>
                                             <div class="col-4">
                                                 <select class="browser-default custom-select dropdown" name='thirdCommittee'>
-                                                    <option value="0" selected>Committee 3 Preferance</option>
+                                                    <option value="0" selected>Committee Preferance 3</option>
                                                     @if (isset($committees) && count($committees))
                                                         @foreach ($committees as $committee)
                                                             <option value='{{ $committee->id }}'>{{ $committee->name }}
@@ -205,7 +205,12 @@
                                     icon: 'error'
                                 })
                             }
-                        });
+                        }).done(function() {
+                            setTimeout(function() {
+                                location.reload()
+                            },2000);
+                            
+                        })
                     }
                 })
             })

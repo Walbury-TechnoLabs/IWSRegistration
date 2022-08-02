@@ -9,9 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $newestCommittees = Committee::orderBy('id', 'desc')->take(3)->get();
-        $randomPortfolios = Portfolio::inRandomOrder()->take(3)->get();
-
-        return view('home', compact(['newestCommittees', 'randomPortfolios']));
+        $newestCommittees = Committee::orderBy('id', 'desc')->get();
+        return view('home', compact(['newestCommittees']));
     }
 }

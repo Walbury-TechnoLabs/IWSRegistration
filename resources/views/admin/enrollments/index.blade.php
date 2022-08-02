@@ -37,9 +37,9 @@
                             <th>
                                 {{ trans('cruds.enrollment.fields.status') }}
                             </th>
-                            <th>
+                            {{-- <th>
                                 &nbsp;
-                            </th>
+                            </th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -63,8 +63,8 @@
                                 <td>
                                     {{ App\Enrollment::STATUS_RADIO[$enrollment->status] ?? '' }}
                                 </td>
-                                <td>
-                                    @can('enrollment_show')
+                             <!--   <td>
+                                    {{-- @can('enrollment_show')
                                         <a class="btn btn-xs btn-primary"
                                             href="{{ route('admin.enrollments.show', $enrollment->id) }}">
                                             {{ trans('global.view') }}
@@ -87,9 +87,9 @@
                                             <input type="submit" class="btn btn-xs btn-danger"
                                                 value="{{ trans('global.delete') }}">
                                         </form>
-                                    @endcan
+                                    @endcan --}}
 
-                                </td>
+                                </td>  -->
 
                             </tr>
                         @endforeach

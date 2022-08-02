@@ -13,7 +13,7 @@ class HomeController
     {
         $committees = Committee::get();
         $protfolios = Portfolio::get();
-        $enrollment = Enrollment::count();
+        $enrollment = Enrollment::where('user_id',auth()->user()->id)->count();
         return view('admin.home',['committees' => $committees,'protfolios' => $protfolios,'enrollment_count' => $enrollment]);
     }
 
