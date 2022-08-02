@@ -19,6 +19,8 @@ Route::resource('committees', 'CommitteeController')->only(['index', 'show']);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::post('/submitform', 'HomeController@submitForm')->name('submitForm');
+
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -48,4 +50,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Enrollments
     Route::delete('enrollments/destroy', 'EnrollmentsController@massDestroy')->name('enrollments.massDestroy');
     Route::resource('enrollments', 'EnrollmentsController');
+    Route::get('assign-enrollments', 'AssignEnrollmentsController@index')->name('admin.assign.enrollments.index');
+    Route::get('assign-enrollments/getPortfolio', 'AssignEnrollmentsController@getPortfolio');
+    Route::get('assign-enrollments/getPortfolioCommittee', 'AssignEnrollmentsController@getPortfolioCommittee');
+    Route::post('assign-enrollments/enrollmentSave', 'AssignEnrollmentsController@enrollmentSave');
+    Route::put('assign-enrollments/updateStatus/{id}', 'AssignEnrollmentsController@updateStatus');
+
 });

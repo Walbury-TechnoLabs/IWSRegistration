@@ -147,6 +147,10 @@ return [
             'updated_at_helper' => '',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => '',
+            'portfolio' => 'Portfolio'
         ],
     ],
+    'assign-enrollment' =>[
+        'title' => 'Assign Enrollment' 
+    ]
 ];

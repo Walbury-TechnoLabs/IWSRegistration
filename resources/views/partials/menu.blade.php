@@ -92,6 +92,15 @@
                     </a>
                 </li>
             @endcan
+            @if(auth()->user() && count(auth()->user()->roles) && auth()->user()->roles[0]->id == 1)
+                <li class="nav-item">
+                    <a href="{{ url('/admin/assign-enrollments') }}" class="nav-link {{ request()->is('admin/assign-enrollments') || request()->is('admin/assign-enrollments/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-highlighter nav-icon">
+                        </i>
+                        {{ trans('cruds.assign-enrollment.title') }}
+                    </a>
+                </li>
+            @endif
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">

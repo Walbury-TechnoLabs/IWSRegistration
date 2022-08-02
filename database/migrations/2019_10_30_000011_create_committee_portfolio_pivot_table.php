@@ -11,7 +11,7 @@ class CreateCommitteePortfolioPivotTable extends Migration
         Schema::create('committee_portfolio', function (Blueprint $table) {
             $table->unsignedInteger('committee_id');
 
-            $table->foreign('committee_id', 'committee_id_fk_538847')->references('id')->on('committees')->onDelete('cascade');
+            $table->foreign('committee_id', 'committee_id_fk_538848')->references('id')->on('committees')->onDelete('cascade');
 
             $table->unsignedInteger('portfolio_id');
 

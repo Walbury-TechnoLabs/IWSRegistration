@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use App\CommitteePortfolio;
 
 class Portfolio extends Model implements HasMedia
 {
@@ -47,10 +48,10 @@ class Portfolio extends Model implements HasMedia
     //     return $this->hasMany(User::class, 'portfolio_id', 'id');
     // }
 
-    // public function committees()
-    // {
-    //     return $this->hasMany(Committee::class, 'portfolio_id', 'id');
-    // }
+    public function committees()
+    {
+        return $this->belongsToMany(Committee::class,CommitteePortfolio::class, 'portfolio_id', 'committee_id');
+    }
 
     public function getLogoAttribute()
     {

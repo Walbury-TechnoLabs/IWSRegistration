@@ -20,7 +20,7 @@
                             @foreach($committee->disciplines as $discipline)
                                 <a href="{{ route('committees.index') }}?discipline={{ $discipline->id }}" class="btn_4 mr-1 mb-1">{{ $discipline->name }}</a>
                             @endforeach
-                            <h4>{{ $committee->getPrice() }}</h4>
+                            <h4>$committee->getPrice()</h4>
                             <a href="{{ route('committees.show', $committee->id) }}"><h3>{{ $committee->name }}</h3></a>
                             <p>{{ Str::limit($committee->description, 100) }}</p>
                             @if($committee->portfolio)

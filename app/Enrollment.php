@@ -23,6 +23,8 @@ class Enrollment extends Model
         'user_id',
         'committee_id',
         'portfolio_id',
+        'selected',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -46,13 +48,29 @@ class Enrollment extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function getUserNameAttribute()
+    {
+        return $this->user->name;
+    }
+
     public function committee()
     {
         return $this->belongsTo(Committee::class, 'committee_id');
     }
 
+    public function getCommitteeNameAttribute()
+    {
+        return $this->committee->name;
+    }
+
+
     public function portfolio()
     {
         return $this->belongsTo(Portfolio::class, 'portfolio_id');
+    }
+
+    public function getPortfolioNameAttribute()
+    {
+        return $this->portfolio->name;
     }
 }

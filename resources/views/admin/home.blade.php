@@ -1,28 +1,219 @@
 @extends('layouts.admin')
 @section('content')
-<div class="content">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    Dashboard
-                </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        Dashboard
+                    </div>
 
-                <div class="card-body">
-                    @if(session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-                    You are logged in!
+                        @if(!$enrollment_count)
+                            <form>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-4">
+                                                Committee 1 Preferance
+                                            </div>
+                                            <div class="col-4">
+                                                Select Profolio
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-4">
+                                                <select class="browser-default custom-select dropdown" name='firstCommittee'>
+                                                    <option value="0" selected>Committee 1 Preferance</option>
+                                                    @if (isset($committees) && count($committees))
+                                                        @foreach ($committees as $committee)
+                                                            <option value='{{ $committee->id }}'>{{ $committee->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                            <div class="col-4">
+                                                <select class="browser-default custom-select dropdown" name='firstPortfolio'>
+                                                    <option value="0" selected>Select Portfolio</option>
+                                                    @if (isset($protfolios) && count($protfolios))
+                                                        @foreach ($protfolios as $protfolio)
+                                                            <option value='{{ $protfolio->id }}'>{{ $protfolio->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-4">
+                                                Committee 1 Preferance
+                                            </div>
+                                            <div class="col-4">
+                                                Select Profolio
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-4">
+                                                <select class="browser-default custom-select dropdown" name='secondCommittee'>
+                                                    <option value="0" selected>Committee 2 Preferance</option>
+                                                    @if (isset($committees) && count($committees))
+                                                        @foreach ($committees as $committee)
+                                                            <option value='{{ $committee->id }}'>{{ $committee->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                            <div class="col-4">
+                                                <select class="browser-default custom-select dropdown" name='secondPortfolio'>
+                                                    <option value="0" selected>Select Portfolio</option>
+                                                    @if (isset($protfolios) && count($protfolios))
+                                                        @foreach ($protfolios as $protfolio)
+                                                            <option value='{{ $protfolio->id }}'>{{ $protfolio->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-4">
+                                                Committee 1 Preferance
+                                            </div>
+                                            <div class="col-4">
+                                                Select Profolio
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-4">
+                                                <select class="browser-default custom-select dropdown" name='thirdCommittee'>
+                                                    <option value="0" selected>Committee 3 Preferance</option>
+                                                    @if (isset($committees) && count($committees))
+                                                        @foreach ($committees as $committee)
+                                                            <option value='{{ $committee->id }}'>{{ $committee->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                            <div class="col-4">
+                                                <select class="browser-default custom-select dropdown" name='thirdPortfolio'>
+                                                    <option value="0" selected>Select Portfolio</option>
+                                                    @if (isset($protfolios) && count($protfolios))
+                                                        @foreach ($protfolios as $protfolio)
+                                                            <option value='{{ $protfolio->id }}'>{{ $protfolio->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
+                                <button type="button" class="btn btn-secondary reset">Reset</button>
+                            </form>  
+                        @else
+                            @if(auth()->user()->roles->pluck('id')[0] == 2)
+                                You have aleardy submitted form successfully
+                            @else
+                                You are logged in
+                            @endif
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 @section('scripts')
-@parent
+    @parent
+    <script>
+        $(function() {
+            $("form").submit(function(event) {
+                event.preventDefault();
+                var data = {};
+                $.each($('form').serializeArray(), function(i, field) {
+                    data[field.name] = field.value;
+                });
+                swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to update your form!",
+                    icon: "warning",
+                    buttons: [
+                        'No, cancel it!',
+                        'Yes, I am sure!'
+                    ],
+                    dangerMode: true,
+                }).then(function(isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            url: "{{ url('/') }}" + "/admin/submitform",
+                            type: 'POST',
+                            data:data,
+                            beforeSend: (xhr) => {
+                                return 'bsdb';
+                            },
+                            success: function(result, status, xhr) {
+                                console.log(result);
+                                if (status == 'success') {
+                                    swal({
+                                        title: 'Submitted!',
+                                        text: result.message,
+                                        icon: 'success'
+                                    })
+                                }
+                            },
+                            error: function(request, status, errorThrown) {
+                                console.log(errorThrown);
+                                swal({
+                                    title: 'Error!',
+                                    text: 'result.message',
+                                    icon: 'error'
+                                })
+                            }
+                        });
+                    }
+                })
+            })
 
+
+            $(document).on('click', '.reset', function(e) {
+                $('.dropdown').val("0")
+            })
+        })
+    </script>
 @endsection

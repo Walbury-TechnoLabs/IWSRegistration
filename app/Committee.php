@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Scopes\CommitteeScope;
+use App\Portfolio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
@@ -64,7 +65,7 @@ class Committee extends Model implements HasMedia
 
     public function portfolio()
     {
-        return $this->belongsTo(Portfolio::class, 'portfolio_id');
+        return $this->belongsToMany(Portfolio::class,CommitteePortfolio::class,'committee_id','portfolio_id');
     }
 
     public function disciplines()

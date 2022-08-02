@@ -20,7 +20,7 @@ class EnrollmentsController extends Controller
     {
         abort_if(Gate::denies('enrollment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $enrollments = Enrollment::all();
+        $enrollments = Enrollment::with(['committee','portfolio'])->where('status','accepted')->get();
 
         return view('admin.enrollments.index', compact('enrollments'));
     }

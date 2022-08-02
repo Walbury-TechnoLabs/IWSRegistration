@@ -77,6 +77,11 @@ class User extends Authenticatable
         return $this->belongsTo(Portfolio::class, 'portfolio_id');
     }
 
+    public function committees()
+    {
+        return $this->belongsToMany(Committee::class,Enrollment::class,'committee_id','user_id');
+    }
+
     public function isPortfolio()
     {
         return $this->roles->contains(2);
