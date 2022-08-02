@@ -6,8 +6,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5">
                     <div class="section_tittle text-center">
-                        <p>Committees</p>
-                        <h2>Newest Committees</h2>
+                        <p>Our Committees</p>
+                        <h2>Indore World Summit-2022</h2>
                     </div>
                 </div>
             </div>
