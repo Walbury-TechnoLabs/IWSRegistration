@@ -14,8 +14,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
-                        @if(!auth()->user()->roles[0]->id == 1 && !$enrollment_count)
+                            
+                        @if(!(auth()->user()->roles[0]->id == 1) && !$enrollment_count)
                             <form>
                                 <div class="row">
                                     <div class="col-12">
@@ -142,7 +142,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br />
+                                <br/>
+                                Delegation fees :- ₹2000  
+                                <div class="col-4">
+                                    <select class="browser-default custom-select dropdown" name='thirdPortfolio'>
+                                        <option value="1" selected>Offline</option>
+                                        <option value='2'>Online</option>
+                                    </select>
+                                </div>
+                                <br/>
+                                <br/>
                                 <button type="submit" class="btn btn-primary submit">Submit</button>
                                 <button type="button" class="btn btn-secondary reset">Reset</button>
                             </form>  
