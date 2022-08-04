@@ -19,7 +19,11 @@ class EnrollmentsController extends Controller
     public function index()
     {
         abort_if(Gate::denies('enrollment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $enrollments = Enrollment::where('user_id',auth()->user()->id)->with(['committee','portfolio'])->where('status','accepted')->get();
+        if(auth()->user()->id->roles[0]->id ==1){
+            $enrollments = Enrollment::with(['committee','portfolio'])->where('status','accepted')->get();   
+        }else{
+            $enrollments = Enrollment::where('user_id',auth()->user()->id)->with(['committee','portfolio'])->where('status','accepted')->get();
+        }
         return view('admin.enrollments.index', compact('enrollments'));
     }
 
