@@ -21,15 +21,6 @@
                                 <div class="special_cource_text">
                                     <h3>{{ $committee->name }}</h3>
                                     <p>{{ Str::limit($committee->description, 100) }}</p>
-                                    <!-- @if ($committee->portfolio)
-                                        <div class="author_info">
-                                            <div class="author_img">
-                                                <div class="author_info_text">
-                                                    <p>Portfolio</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif -->
                                 </div>
                             </a>
                         </div>

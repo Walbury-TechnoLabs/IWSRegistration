@@ -59,9 +59,12 @@ class EnrollmentController extends Controller
 
         $userEnrollments = auth()->user()
             ->enrollments()
-            ->with('committee.portfolio')
-            ->orderBy('id', 'desc')
-            ->paginate(6);
+            ->with('committee.portfolio');
+        $count = auth()->user()->enrollments()->where('status','accepted')->count();
+        if($count){
+            $userEnrollments->where('status','accepted');
+        }
+        $userEnrollments = $userEnrollments->orderBy('id', 'desc')->paginate(6);
 
         return view('enrollment.committees', compact(['breadcrumb', 'userEnrollments']));
     }
