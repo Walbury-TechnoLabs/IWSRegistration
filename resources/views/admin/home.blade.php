@@ -144,12 +144,16 @@
                                 </div>
                                 <br/>
                                 Delegation fees :- ₹2000  
+                                <br/>
+                                <br/>
                                 <div class="col-4">
-                                    <select class="browser-default custom-select dropdown" name='payment_mode'>
+                                    <select class="browser-default custom-select dropdown" name='payment_mode' id='payment_mode'>
                                         <option value="1" selected>Offline</option>
                                         <option value='2'>Online</option>
                                     </select>
                                 </div>
+                                <br/>
+                            <div id='message' > </div>
                                 <br/>
                                 <br/>
                                 <button type="submit" class="btn btn-primary submit">Submit</button>
@@ -224,9 +228,16 @@
                 })
             })
 
-
             $(document).on('click', '.reset', function(e) {
                 $('.dropdown').val("0")
+            })
+
+            $(document).on('change', '#payment_mode', function(e) {
+                if($(this).val() == 2){
+                    $('#message').html('Kindly check your registered email for payment details.')
+                } else {
+                    $('#message').html('')
+                }
             })
         })
     </script>
