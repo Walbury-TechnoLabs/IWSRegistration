@@ -24,7 +24,7 @@
             </div>
             <div class="form-group {{ $errors->has('committee_id') ? 'has-error' : '' }}">
                 <label for="committee">{{ trans('cruds.enrollment.fields.committee') }}*</label>
-                <select name="commttee_id" id="committee" class="form-control select2" required>
+                <select name="committee_id" id="committee" class="form-control select2" required>
                     @foreach($committees as $id => $committee)
                         <option value="{{ $id }}" {{ (isset($enrollment) && $enrollment->committee ? $enrollment->committee->id : old('committee_id')) == $id ? 'selected' : '' }}>{{ $committee }}</option>
                     @endforeach
