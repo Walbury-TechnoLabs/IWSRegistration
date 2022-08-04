@@ -20,23 +20,6 @@
 
             <div class="col-lg-4 right-contents">
                 <div class="sidebar_top">
-                    <!-- <ul>
-                        @if($committee->portfolio)
-                            <li>
-                                <a class="justify-content-between d-flex">
-                                    <p>Portfolio</p>
-                                    <span class="color">{{ $committee->portfolio->name }}</span>
-                                </a>
-                            </li>
-                        @endif
-                        <li>
-                            <a class="justify-content-between d-flex">
-                                <p>Committee Fee </p>
-                                <span>{{ $committee->getPrice() }}</span>
-                            </a>
-                        </li>
-
-                    </ul> -->
                     <a href="{{ route('enroll.create', $committee->id) }}" class="btn_1 d-block">Enroll the committee</a>
                 </div>
             </div>

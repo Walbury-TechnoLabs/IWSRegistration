@@ -19,20 +19,8 @@
                             @foreach($committe->disciplines as $discipline)
                                 <a href="{{ route('committees.index') }}?discipline={{ $discipline->id }}" class="btn_4 mr-1 mb-1">{{ $discipline->name }}</a>
                             @endforeach
-                            <!-- <h4>{{ $committe->getPrice() }}</h4> -->
                             <a href="{{ route('committees.show', $committe->id) }}"><h3>{{ $committe->name }}</h3></a>
                             <p>{{ Str::limit($committe->description, 100) }}</p>
-                            <!-- @if($committe->portfolio)
-                                <div class="author_info">
-                                    <div class="author_img">
-                                        <img src="{{ optional($committe->portfolio->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
-                                        <div class="author_info_text">
-                                            <p>Portfolio</p>
-                                            <h5><a href="{{ route('committees.index') }}?portfolio={{ $committe->portfolio->id }}">{{ $committe->portfolio->name }}</a></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif -->
                         </div>
                     </div>
                 </div>

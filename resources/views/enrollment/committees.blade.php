@@ -19,22 +19,9 @@
                             @foreach($enrollment->committee->disciplines as $discipline)
                                 <a href="{{ route('committees.index') }}?discipline={{ $discipline->id }}" class="btn_4 mr-1 mb-1">{{ $discipline->name }}</a>
                             @endforeach
-                            <h4>{{ $enrollment->committee->getPrice() }}</h4>
                             <a href="{{ route('committees.show', $enrollment->committee->id) }}">
                             <h3>{{ $enrollment->committee->name }}</h3></a>
                             <p>{{ Str::limit($enrollment->committee->description, 100) }}</p>
-                            @if($enrollment->committee->portfolio)
-                                <div class="author_info">
-                                    <div class="author_img">
-                                        <img src="{{ optional($enrollment->committee->portfolio->logo)->thumbnail ?? asset('img/no_image.png') }}" alt="" class="rounded-circle">
-                                        <div class="author_info_text">
-                                            <p>Portfolio</p>
-                                            <h5><a href="{{ route('committees.index') }}?portfolio={{ $enrollment->committee->portfolio->id }}">{{ $enrollment->committee->portfolio->name }}</a></h5>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            @endif
                             <div class="author_info">
                                 <p>Status:</p>
                                 <h5>{{ App\Enrollment::STATUS_RADIO[$enrollment->status] }}</h5>
