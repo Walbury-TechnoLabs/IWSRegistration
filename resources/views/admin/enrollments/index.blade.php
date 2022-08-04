@@ -35,11 +35,12 @@
                                 {{ trans('cruds.enrollment.fields.portfolio') }}
                             </th>
                             <th>
+                                Payment Mode
+                            </th>
+                            <th>
                                 {{ trans('cruds.enrollment.fields.status') }}
                             </th>
-                            {{-- <th>
-                                &nbsp;
-                            </th> --}}
+
                         </tr>
                     </thead>
                     <tbody>
@@ -61,36 +62,11 @@
                                     {{ $enrollment->portfolio->name ?? '' }}
                                 </td>
                                 <td>
+                                    {{ $enrollment->user->payment_mode ?? '' }}
+                                </td>
+                                <td>
                                     {{ App\Enrollment::STATUS_RADIO[$enrollment->status] ?? '' }}
                                 </td>
-                             <!--   <td>
-                                    {{-- @can('enrollment_show')
-                                        <a class="btn btn-xs btn-primary"
-                                            href="{{ route('admin.enrollments.show', $enrollment->id) }}">
-                                            {{ trans('global.view') }}
-                                        </a>
-                                    @endcan
-
-                                    @can('enrollment_edit')
-                                        <a class="btn btn-xs btn-info"
-                                            href="{{ route('admin.enrollments.edit', $enrollment->id) }}">
-                                            {{ trans('global.edit') }}
-                                        </a>
-                                    @endcan
-
-                                    @can('enrollment_delete')
-                                        <form action="{{ route('admin.enrollments.destroy', $enrollment->id) }}" method="POST"
-                                            onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
-                                            style="display: inline-block;">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="btn btn-xs btn-danger"
-                                                value="{{ trans('global.delete') }}">
-                                        </form>
-                                    @endcan --}}
-
-                                </td>  -->
-
                             </tr>
                         @endforeach
                     </tbody>

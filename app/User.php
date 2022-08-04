@@ -50,6 +50,23 @@ class User extends Authenticatable
         return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
     }
 
+    
+    public function getPaymentModeAttribute($value)
+    {
+        switch($value){
+            case 1 :
+                return 'offline';
+                break;
+            case 2 :
+                return 'online';
+                break;
+            default :
+                return 'offline';
+                break;
+        }
+    }
+
+
     public function setEmailVerifiedAtAttribute($value)
     {
         $this->attributes['email_verified_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;

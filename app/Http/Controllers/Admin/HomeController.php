@@ -20,6 +20,8 @@ class HomeController
     public function submitForm(Request $request)
     {
         $authUser = auth()->user();
+        $authUser->payment_mode = $request->payment_mode;
+        $authUser->save();
         $dataSave = [
             [
                 'user_id' => $authUser->id,

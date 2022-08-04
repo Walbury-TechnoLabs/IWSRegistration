@@ -145,7 +145,7 @@
                                 <br/>
                                 Delegation fees :- ₹2000  
                                 <div class="col-4">
-                                    <select class="browser-default custom-select dropdown" name='thirdPortfolio'>
+                                    <select class="browser-default custom-select dropdown" name='payment_mode'>
                                         <option value="1" selected>Offline</option>
                                         <option value='2'>Online</option>
                                     </select>
