@@ -153,7 +153,7 @@
                                     </select>
                                 </div>
                                 <br/>
-                            <div id='message' > </div>
+                            <div id='message' style="color:red;" > </div>
                                 <br/>
                                 <br/>
                                 <button type="submit" class="btn btn-primary submit">Submit</button>
