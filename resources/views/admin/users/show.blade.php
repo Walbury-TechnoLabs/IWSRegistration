@@ -28,6 +28,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.user.fields.contact') }}
+                        </th>
+                        <td>
+                            {{ $user->contact }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.user.fields.email') }}
                         </th>
                         <td>
@@ -40,6 +48,30 @@
                         </th>
                         <td>
                             {{ $user->email_verified_at }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.class') }}
+                        </th>
+                        <td>
+                            {{ $user->class }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.school') }}
+                        </th>
+                        <td>
+                            {{ $user->school }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.city') }}
+                        </th>
+                        <td>
+                            {{ $user->city }}
                         </td>
                     </tr>
                     <tr>

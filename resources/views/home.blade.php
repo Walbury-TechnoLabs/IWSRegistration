@@ -21,7 +21,7 @@
                                 <div class="special_cource_text">
                                     <h3>{{ $committee->name }}</h3>
                                     <p>{{ Str::limit($committee->description, 100) }}</p>
-                                    @if ($committee->portfolio)
+                                    <!-- @if ($committee->portfolio)
                                         <div class="author_info">
                                             <div class="author_img">
                                                 <div class="author_info_text">
@@ -29,7 +29,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endif
+                                    @endif -->
                                 </div>
                             </a>
                         </div>

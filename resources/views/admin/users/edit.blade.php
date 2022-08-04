@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+'@extends('layouts.admin')
 @section('content')
 
 <div class="card">
@@ -22,6 +22,18 @@
                     {{ trans('cruds.user.fields.name_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
+                <label for="contact">{{ trans('cruds.user.fields.contact') }}*</label>
+                <input type="text" id="contact" name="contact" class="form-control" value="{{ old('contact', isset($user) ? $user->name : '') }}" required>
+                @if($errors->has('contact'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('contact') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.user.fields.contact_helper') }}
+                </p>
+            </div>
             <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="email">{{ trans('cruds.user.fields.email') }}*</label>
                 <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($user) ? $user->email : '') }}" required>
@@ -32,6 +44,40 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.user.fields.email_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('class') ? 'has-error' : '' }}">
+                <label for="class">{{ trans('cruds.user.fields.class') }}*</label>
+                <input type="text" id="class" name="class" class="form-control" value="{{ old('class', isset($user) ? $user->class : '') }}" required>
+                @if($errors->has('class'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('class') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.user.fields.class_helper') }}
+                </p>
+            </div><div class="form-group {{ $errors->has('school') ? 'has-error' : '' }}">
+                <label for="school">{{ trans('cruds.user.fields.school') }}*</label>
+                <input type="text" id="school" name="school" class="form-control" value="{{ old('school', isset($user) ? $user->school : '') }}" required>
+                @if($errors->has('school'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('school') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.user.fields.school_helper') }}
+                </p>
+            </div><div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
+                <label for="city">{{ trans('cruds.user.fields.city') }}*</label>
+                <input type="text" id="city" name="city" class="form-control" value="{{ old('city', isset($user) ? $user->city : '') }}" required>
+                @if($errors->has('city'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('city') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.user.fields.name_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">

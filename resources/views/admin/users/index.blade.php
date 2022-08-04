@@ -29,10 +29,22 @@
                             {{ trans('cruds.user.fields.name') }}
                         </th>
                         <th>
+                            {{ trans('cruds.user.fields.contact') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.user.fields.email') }}
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.email_verified_at') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.user.fields.class') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.user.fields.school') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.user.fields.city') }}
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.roles') }}
@@ -58,10 +70,22 @@
                                 {{ $user->name ?? '' }}
                             </td>
                             <td>
+                                {{ $user->contact ?? '' }}
+                            </td>
+                            <td>
                                 {{ $user->email ?? '' }}
                             </td>
                             <td>
                                 {{ $user->email_verified_at ?? '' }}
+                            </td>
+                            <td>
+                                {{ $user->class ?? '' }}
+                            </td>
+                            <td>
+                                {{ $user->school ?? '' }}
+                            </td>
+                            <td>
+                                {{ $user->city ?? '' }}
                             </td>
                             <td>
                                 @foreach($user->roles as $key => $item)

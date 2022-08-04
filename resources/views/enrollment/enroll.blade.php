@@ -24,8 +24,24 @@
                              required class="single-input" value="{{ auth()->check() ?  auth()->user()->name : old('name') }}" @auth disabled @endauth>
                         </div>
                         <div class="mt-10">
+                            <input type="text" name="contact" placeholder="Contact Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact Number'"
+                             required class="single-input" value="{{ auth()->check() ?  auth()->user()->contact : old('contact') }}" @auth disabled @endauth>
+                        </div>
+                        <div class="mt-10">
                             <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'"
                              required class="single-input" value="{{ auth()->check() ?  auth()->user()->email : old('email') }}" @auth disabled @endauth>
+                        </div>
+                        <div class="mt-10">
+                            <input type="text" name="class" placeholder="Class" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Class'"
+                             required class="single-input" value="{{ auth()->check() ?  auth()->user()->class : old('class') }}" @auth disabled @endauth>
+                        </div>
+                        <div class="mt-10">
+                            <input type="text" name="school" placeholder="School" onfocus="this.placeholder = ''" onblur="this.placeholder = 'School'"
+                             required class="single-input" value="{{ auth()->check() ?  auth()->user()->school : old('school') }}" @auth disabled @endauth>
+                        </div>
+                        <div class="mt-10">
+                            <input type="text" name="city" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'"
+                             required class="single-input" value="{{ auth()->check() ?  auth()->user()->city : old('city') }}" @auth disabled @endauth>
                         </div>
                         @guest
                             <div class="mt-10">

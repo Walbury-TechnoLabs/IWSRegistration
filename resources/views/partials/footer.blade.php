@@ -32,7 +32,7 @@
                 </div>
             </div>
             <!-- </div> -->
-            <div class="col-xl-3 col-sm-6 col-md-4">
+            <div class="col-xl-8 col-sm-6 col-md-4">
                 <div class="single-footer-widget footer_2">
                     <!-- <h4>Contact us</h4>
                     <div class="contact_info">
@@ -40,10 +40,14 @@
                         <p><span> Phone :</span> +2 36 265 (8060)</p>
                         <p><span> Email : </span>info@colorlib.com </p>
                     </div> -->
-                    <p className="mt-6 leading-7 text-2xl">
+                    <p className="mt-6 leading-7 text-2xl" style="
+    color: black !important;
+    font-size: 150% !important;">
                   <a href="https://muniversiti.org">Home</a><br />
                 </p>
-                <p className="mt-6 leading-7 text-2xl hidden md:block">
+                <p className="mt-6 leading-7 text-2xl hidden md:block" style="
+    color: black !important;
+    font-size: 150% !important;">
                   <a href="https://muniversiti.org/programs">Programs</a><br />
                 </p>
                 <div className="block md:hidden">
@@ -55,30 +59,30 @@
                     footer
                     link="https://muniversiti.org/programs"
                   >
-                    <p className="mt-6 leading-7 text-2xl">
+                    <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
                       <a href="https://muniversiti.org/programs/big-bang">The Big Bang Project</a><br />
                     </p>
-                    <p className="mt-6 leading-7 text-2xl">
-                      <a href="https://muniversiti.org/programs/world-summit">World Summits</a><br />
+                    <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
+                      <a href="https://muniversiti.org/programs/world-summit" >World Summits</a><br />
                     </p>
-                    <p className="mt-6 leading-7 text-2xl">
+                    <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
                       <a href="https://muniversiti.org/programs/yilp">Leadership Programme</a><br />
                     </p>
-                    <p className="mt-6 leading-7 text-2xl">
+                    <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
                       <a href="https://muniversiti.org/programs/researchpaper">Research Paper Writing</a><br />
                     </p>
-                    <p className="mt-6 leading-7 text-2xl">
+                    <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
                       <a href="https://muniversiti.org/programs/mun">MUN Training</a><br />
                     </p>
-                    <p className="mt-6 leading-7 text-2xl">
+                    <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
                       <a href="https://muniversiti.org/programs/yiep">Entrepreneurship Programme</a><br />
                     </p>
                   </Accordion>
                 </div>
-                <p className="mt-6 leading-7 text-2xl">
+                <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
                   <a href="https://muniversiti.org/contact">Contact Us</a><br />
                 </p>
-                <p className="mt-6 leading-7 text-2xl">
+                <p className="mt-6 leading-7 text-2xl" style=" color: black !important; font-size: 150% !important;">
                   <a href="mailto:info@muniversiti.org">Support</a><br />
                 </p>
               </div>
