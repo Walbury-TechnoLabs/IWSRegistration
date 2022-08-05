@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
 
             $table->string('password')->nullable();
 
-            $table->tinyInteger('payment_mode',1)->nullable();
+            $table->tinyInteger('payment_mode')->nullable();
 
             $table->string('remember_token')->nullable();
 

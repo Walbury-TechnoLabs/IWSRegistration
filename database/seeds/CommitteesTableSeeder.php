@@ -35,7 +35,7 @@ class CommitteesTableSeeder extends Seeder
             $id++;
             $committee = Committee::create($committees);
             $committee->addMedia(public_path("img/committee/committee_$id.png"))->preservingOriginal()->toMediaCollection('photo');
-            $committee->disciplines()->sync([$id]);
+           
         }
     }
 }
