@@ -49,6 +49,14 @@ class HomeController
             ],
         ];
         Enrollment::insert($dataSave);
+        $user = auth()->user();
+        $mailbox = [
+            'layout' => 'welcome-user',
+            'mail_body' => [ 'user' => $user],
+            'subject' => 'Welcome to the Muniversiti',
+            'mail_to' => $user->email,
+        ];
+        sendMail($mailbox);
         return response()->json(['status' => '200','message' => 'Form Submitted Successfully','data' => $request->all()],200);
     }
 }
