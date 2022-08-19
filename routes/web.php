@@ -10,7 +10,17 @@ Route::get('/home', function () {
 
 Auth::routes();
 
+Route::get('/storage/{extra}', function ($extra) {return redirect('/public/storage/'.$extra);})->where('extra', '.*');
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', function(){ 
+    return view('about');
+ });
+Route::get('/itinerary', function(){ 
+    return view('itinerary');
+ });
+Route::get('/afscollab', function(){ 
+    return view('afscollab');
+ });
 Route::get('enroll/login/{committee}', 'EnrollmentController@handleLogin')->name('enroll.handleLogin')->middleware('auth');
 Route::get('enroll/{committee}', 'EnrollmentController@create')->name('enroll.create');
 Route::post('enroll/{committee}', 'EnrollmentController@store')->name('enroll.store');

@@ -162,6 +162,8 @@
                         @else
                             @if(auth()->user()->roles->pluck('id')[0] == 2)
                                 You have aleardy submitted form successfully
+                                <br><br>
+                                <a class="btn btn-success" href="{{ route('enroll.myCommittees') }}"> Check your Enrollment Status </a>
                             @else
                                 You are logged in
                             @endif
