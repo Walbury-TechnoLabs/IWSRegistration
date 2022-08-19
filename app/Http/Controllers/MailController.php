@@ -13,6 +13,7 @@ class MailController extends Controller
             'subject' => 'dscvsdbvgsdbs',
             'mail_to' => 'rupeshsejgaya5@gmail.com',
         ];
-        return sendMail($mailbox);
+        sendMail($mailbox);
+        return 'test mail sent successfully'; 
     } 
 }
