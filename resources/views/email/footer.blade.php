@@ -16,8 +16,10 @@
             <td colspan="4" style="text-align: center;display: block;">
                 <p class="footer-first">
                     Questions? Comments? Please feel free to contact us at <br>
+
                     <span><a href="mailto:indoreworldsummit@muniversiti.org" class="footer-mail"
                             style="color:#54616c;">indoreworldsummit@muniversiti.org</a></span>
+
                 </p>
             </td>
         </tr>
@@ -25,7 +27,9 @@
         <tr style="display: block;">
             <td colspan="4" style="text-align: center;display: block; ">
                 <p class="footer-first">
+
                     All rights reserved to <a href="https://muniversiti.org">Muniversiti EdCorp</a>.
+
                 </p>
             </td>
         </tr>

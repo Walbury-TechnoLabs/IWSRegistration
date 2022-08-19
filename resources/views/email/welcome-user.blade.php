@@ -408,55 +408,31 @@
                             <td colspan="4" style="display:block;">
                                 <h1 style="color:#000 !important;
                   text-transform: uppercase !important; text-align: center;">WELCOME TO IWS-2022</h1>
+
                                 <h2
                                     style="margin-bottom: 30px; color:#000 !important;
               text-transform: uppercase !important; text-align: center;">
                                     Thanks for setting up an account
                                 </h2>
                                 <p class="first-para" style="text-align: center;">
+
                                     Dear Delegate,
 We are glad to welcome you to Indore World Summit 2022, Central India’s biggest model UN conference, brought to you in partnership with AFS India and UpGrad. We regard our delegates as members of our family and look forward to providing you with a rewarding conference. Your decision to select IWS to add value to your MUNning journey is much appreciated.
-Please find attached with this mail the document having the UPI QR code. If you choose to pay online, reply to this email with the following information:
-Name:
-Mobile number:
-email id,  
-School (same as the details provided during registration) and, 
-a screenshot of the payment.
+Please find attached with this mail the document having the UPI QR code. If you choose to pay online, reply to this email with the following information:<br>
+Name:<br>
+Mobile number:<br>
+email id: <br>  
+School <br>
+(same as the details provided during registration) and, 
+a screenshot of the payment.<br>
 Once we have received the confirmation of the payment, the confirmation of the registration will be reflected on the dashboard.   
+
 
                                 </p>
                             </td>
                         </tr>
 
-                        <!-- hide for now -->
-
-
-                        <tr style="display:block;">
-                            <td colspan="4" style="display:block;">
-                                <div style="text-align: center">
-                                    <!-- hide for now -->
-                                    <!-- <a href="{{ env('LANDING_PAGE', 'JavaScript:void(0)') }}" style="display:block; text-align:center;"><img class="custom-template-btn" src="{{ asset('assets/images/browser-activity.png') }}" /></a> -->
-
-                                </div>
-
-                                <hr style="margin-bottom:35px !important;" class="line3" />
-
-                                <!--<h2 style="margin-bottom: 9px ; text-align: center;">REFER A FRIEND</h2>-->
-                                <!--<p-->
-                                <!--    style="margin-bottom: 10px; font-size:20px; line-height: 26px; color:#000; margin-bottom:4px;text-align: center;">-->
-                                <!--    Refer your friends and get £45 off your next booking-->
-
-
-
-                                <!--</p>-->
-                                <!--<a href={{ env('T_AND_C', 'JavaScript:void(0)') }}>-->
-                                <!--    <p-->
-                                <!--        style="margin-bottom: 80px; font-size:20px; line-height: 26px; color:#000; margin-bottom:4px; text-decoration:underline; margin-bottom: 80px; text-align: center;">-->
-                                <!--        T&C's apply</p>-->
-                                <!--</a>-->
-                            </td>
-                        </tr>
-                    </tbody>
+                                            </tbody>
                 </table>
             </div>
             @include('email.footer')

@@ -53,7 +53,9 @@ class HomeController
         $mailbox = [
             'layout' => 'welcome-user',
             'mail_body' => [ 'user' => $user],
+
             'subject' => 'Congratulations on successful registration for IWS-2022',
+
             'mail_to' => $user->email,
         ];
         sendMail($mailbox);
