@@ -27,19 +27,27 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
-    <header class="app-header navbar">
+    <header class="app-header navbar" style="
+    padding-bottom: 8%;
+">
         <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/home">
-            <span class="navbar-brand-full">{{ trans('panel.site_title') }}</span>
-            <span class="navbar-brand-minimized">{{ trans('panel.site_title') }}</span>
+            <span class="navbar-brand-full">
+                <div id="wrapper" style="width:100%; text-align:center">
+                    <img src="{{ asset('img/logo.png') }}" style="max-width: 100%;height: auto;padding-top: 25%;">
+                    </div>
+            </span>
+            
         </a>
-        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show" style="
+    padding-top: 4%;
+">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <ul class="nav navbar-nav ml-auto">
+        <ul class="nav navbar-nav ml-auto" >
             @if(count(config('panel.available_languages', [])) > 1)
                 <li class="nav-item dropdown d-md-down-none">
                     <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +70,7 @@
         <main class="main">
 
 
-            <div style="padding-top: 20px" class="container-fluid">
+            <div style="padding-top: 8%" class="container-fluid">
                 @if(session('message'))
                     <div class="row mb-2">
                         <div class="col-lg-12">

@@ -36,12 +36,14 @@
             <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="email">{{ trans('cruds.user.fields.email') }}*</label>
                 <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($user) ? $user->email : '') }}" required>
+                Kindly ensure that you submit the right email address
                 @if($errors->has('email'))
                     <em class="invalid-feedback">
                         {{ $errors->first('email') }}
                     </em>
                 @endif
                 <p class="helper-block">
+                    
                     {{ trans('cruds.user.fields.email_helper') }}
                 </p>
             </div>

@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $newestCommittees = Committee::orderBy('id', 'desc')->get();
+        $newestCommittees = Committee::orderBy('id', 'asc')->get();
         return view('home', compact(['newestCommittees']));
     }
 }

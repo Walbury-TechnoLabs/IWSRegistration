@@ -4,11 +4,15 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header">
-                        Dashboard
+                    <div class="card-header" style="
+    text-align: -webkit-center;
+    font-family: serif;
+    font-size: x-large;
+">
+                        <b>INDORE WORLD SUMMIT 2022</b>
                     </div>
-
-                    <div class="card-body">
+ 
+                    <div class="card-body" style="background: lightgray;">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -16,14 +20,62 @@
                         @endif
                             
                         @if(!(auth()->user()->roles[0]->id == 1) && !$enrollment_count)
+                                <p style="font-family: inherit;text-align: -webkit-center;">
+                                    Thank you for showing your interest in attending the Conference.<br>
+                                    To reserve your delegation, please fill out the information below.<br>
+                                    <a href="https://iws.muniversiti.org/agenda">Click here for Agendas!</a>
+
                             <form>
+                                <br>
+                                <div class="row" style="font-family: sans-serif; font-size: revert; font-weight: 600;">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-4">
+                                                MUN Experience (If none, type "Debutant")
+                                            </div>
+                                            <div class="col-8" style="padding-left: 19%;">
+                                                Past MUN achievements (If none, type "Debutant")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
                                 <div class="row">
+                                    <div class="col-12">
+                                        <div class='row'>
+                                            <div class="col-5">
+                                                <input type="text" id="exp" name="exp" class="form-control" value="{{ old('exp',  '') }}" required>
+                                                    @if($errors->has('exp'))
+                                                        <em class="invalid-feedback">
+                                                            {{ $errors->first('exp') }}
+                                                        </em>
+                                                    @endif
+                                                    <p class="helper-block">
+                                                        {{ trans('cruds.user.fields.name_helper') }}
+                                                    </p>
+                                            </div>
+                                            <div class="col-7" style="padding-left: 10%;">
+                                                <input type="text" id="ach" name="ach" class="form-control" value="{{ old('ach',  '') }}" required>
+                                                    @if($errors->has('ach'))
+                                                        <em class="invalid-feedback">
+                                                            {{ $errors->first('ach') }}
+                                                        </em>
+                                                    @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+
+
+
+                                <div class="row" style="font-family: sans-serif; font-size: revert; font-weight: 600;">
                                     <div class="col-12">
                                         <div class='row'>
                                             <div class="col-4">
                                                 Committee Preferance 1
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-8" style="padding-left: 19%;">
                                                 Select Profolio
                                             </div>
                                         </div>
@@ -33,7 +85,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class='row'>
-                                            <div class="col-4">
+                                            <div class="col-5">
                                                 <select class="browser-default custom-select dropdown" name='firstCommittee'>
                                                     <option value="0" selected>Committee Preferance 1</option>
                                                     @if (isset($committees) && count($committees))
@@ -44,7 +96,7 @@
                                                     @endif
                                                 </select>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-7" style="padding-left: 10%;">
                                                 <select class="browser-default custom-select dropdown" name='firstPortfolio'>
                                                     <option value="0" selected>Select Portfolio</option>
                                                     @if (isset($protfolios) && count($protfolios))
@@ -59,13 +111,13 @@
                                     </div>
                                 </div>
                                 <br />
-                                <div class="row">
+                                <div class="row" style="font-family: sans-serif; font-size: revert; font-weight: 600;">
                                     <div class="col-12">
                                         <div class='row'>
                                             <div class="col-4">
                                                 Committee Preferance 2
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-8" style="padding-left: 19%;">
                                                 Select Profolio
                                             </div>
                                         </div>
@@ -75,7 +127,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class='row'>
-                                            <div class="col-4">
+                                            <div class="col-5">
                                                 <select class="browser-default custom-select dropdown" name='secondCommittee'>
                                                     <option value="0" selected>Committee Preferance 2</option>
                                                     @if (isset($committees) && count($committees))
@@ -86,7 +138,7 @@
                                                     @endif
                                                 </select>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-7" style="padding-left: 10%;">
                                                 <select class="browser-default custom-select dropdown" name='secondPortfolio'>
                                                     <option value="0" selected>Select Portfolio</option>
                                                     @if (isset($protfolios) && count($protfolios))
@@ -101,13 +153,13 @@
                                     </div>
                                 </div>
                                 <br />
-                                <div class="row">
+                                <div class="row" style="font-family: sans-serif; font-size: revert; font-weight: 600;">
                                     <div class="col-12">
                                         <div class='row'>
                                             <div class="col-4">
                                                 Committee Preferance 3
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-8" style="padding-left: 19%;">
                                                 Select Profolio
                                             </div>
                                         </div>
@@ -117,7 +169,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class='row'>
-                                            <div class="col-4">
+                                            <div class="col-5">
                                                 <select class="browser-default custom-select dropdown" name='thirdCommittee'>
                                                     <option value="0" selected>Committee Preferance 3</option>
                                                     @if (isset($committees) && count($committees))
@@ -128,7 +180,7 @@
                                                     @endif
                                                 </select>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-7" style="padding-left: 10%;">
                                                 <select class="browser-default custom-select dropdown" name='thirdPortfolio'>
                                                     <option value="0" selected>Select Portfolio</option>
                                                     @if (isset($protfolios) && count($protfolios))
@@ -143,10 +195,12 @@
                                     </div>
                                 </div>
                                 <br/>
-                                Delegation fees :- ₹2000  
-                                <br/>
-                                <br/>
+                                <div class="col-4" style="font-family: sans-serif; font-size: revert; font-weight: 600;">
+                                                Payment Mode
+                                            </div>
+
                                 <div class="col-4">
+                                    <br>
                                     <select class="browser-default custom-select dropdown" name='payment_mode' id='payment_mode'>
                                         <option value="1" selected>Offline</option>
                                         <option value='2'>Online</option>
@@ -157,7 +211,14 @@
                                 <br/>
                                 <br/>
                                 <button type="submit" class="btn btn-primary submit">Submit</button>
-                                <button type="button" class="btn btn-secondary reset">Reset</button>
+                                <button type="button" class="btn btn-secondary reset">Reset</button> <br>
+                                <p style="font-family: 'Font Awesome 5 Free';">
+                                <br><b>NOTE:-</b><br>
+                                1) Delegation Fee: 1850/-     <br>
+                                2) Delegation Fee + Accomodation: 4000/-
+                                <br>
+(Students coming through official school delegation are suggested to pay offline through school)<br>
+- Kindly check your registered email for further details.</p>
                             </form>  
                         @else
                             @if(auth()->user()->roles->pluck('id')[0] == 2)
@@ -236,7 +297,7 @@
 
             $(document).on('change', '#payment_mode', function(e) {
                 if($(this).val() == 2){
-                    $('#message').html('Kindly check your registered email for payment details.')
+                    $('#message').html('Kindly check your registered email for further details.')
                 } else {
                     $('#message').html('')
                 }

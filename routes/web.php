@@ -1,8 +1,5 @@
 <?php
 
-Route::get('testMail', 'MailController@testMail');
-
-
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -15,14 +12,21 @@ Auth::routes();
 
 Route::get('/storage/{extra}', function ($extra) {return redirect('/public/storage/'.$extra);})->where('extra', '.*');
 Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/about', function(){ 
     return view('about');
  });
 Route::get('/itinerary', function(){ 
     return view('itinerary');
  });
+ Route::get('/country-matrix', function(){ 
+    return view('country-matrix');
+ });
 Route::get('/afscollab', function(){ 
     return view('afscollab');
+ });
+Route::get('/agenda', function(){ 
+    return view('agenda');
  });
 Route::get('enroll/login/{committee}', 'EnrollmentController@handleLogin')->name('enroll.handleLogin')->middleware('auth');
 Route::get('enroll/{committee}', 'EnrollmentController@create')->name('enroll.create');
@@ -68,6 +72,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('assign-enrollments/getPortfolioCommittee', 'AssignEnrollmentsController@getPortfolioCommittee');
     Route::post('assign-enrollments/enrollmentSave', 'AssignEnrollmentsController@enrollmentSave');
     Route::put('assign-enrollments/updateStatus/{id}', 'AssignEnrollmentsController@updateStatus');
+    
 });
-
-

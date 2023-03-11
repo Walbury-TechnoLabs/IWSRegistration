@@ -1,5 +1,7 @@
 <div class="sidebar">
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav" style="
+    padding-top: 42%;
+">
 
         <ul class="nav">
             <li class="nav-item">

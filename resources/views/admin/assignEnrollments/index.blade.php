@@ -32,6 +32,11 @@
                                 {{ trans('cruds.enrollment.fields.portfolio') }}
                             </th>
                             <th>
+                                MUN Experience
+                            </th><th>
+                                MUN Achievements
+                            </th>
+                            <th>
                                 {{ trans('cruds.enrollment.fields.status') }}
                             </th>
                         </tr>
@@ -56,6 +61,12 @@
                                 </td>
                                 <td class='table-data table-data-portfolio'>
                                     {{ $enrollment['portfolio_name'] ?? '' }}
+                                </td>
+                                <td class='table-data'>
+                                    {{ $enrollment['user']['exp'] ?? '' }}
+                                </td>
+                                <td class='table-data'>
+                                    {{ $enrollment['user']['ach'] ?? '' }}
                                 </td>
                                 <td class='table-data table-data-status'>
                                     <div class="dropdown">

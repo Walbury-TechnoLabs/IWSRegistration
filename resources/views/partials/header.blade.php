@@ -4,8 +4,8 @@
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand logo_1" href="https://muniversiti.org"> <img
-                            src="{{ asset('img/header_afs.svg') }}" alt="logo"> </a>
-                    <a class="navbar-brand logo_2" href="https://muniversiti.org"> <img src="{{ asset('img/header_afs.svg') }}"
+                            src="{{ asset('img/header_afs_light.png') }}" alt="logo"> </a>
+                    <a class="navbar-brand logo_2" href="https://muniversiti.org"> <img src="{{ asset('img/header_afs.png') }}"
                             alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -22,23 +22,76 @@
 
                     <div class="collapse navbar-collapse main-menu-item justify-content-end"
                         id="navbarSupportedContent">
-                        <ul class="navbar-nav align-items-center">
+                        <ul class="navbar-nav align-items-center" style="font-size: 18px; font-family: 'Poppins'; color: black;">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">Home</a>
+                                <a class="nav-link" href="{{ url('/') }}" style="
+    text-align: left;
+    text-decoration: auto;
+    font-family: sans-serif;
+    
+        font-weight: 600;
+
+">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
+                                <a class="nav-link" href="/about" style="
+    text-align: left;
+    text-decoration: auto;
+    font-family: sans-serif;
+    
+        font-weight: 600;
+
+">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/afscollab">AFS India</a>
+                                <a class="nav-link" href="/afscollab" style="
+    text-align: left;
+    text-decoration: auto;
+    font-family: sans-serif;
+    
+        font-weight: 600;
+
+">AFS India</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/itinerary">Itinerary</a>
-                            </li>
+                            <li class="nav-item dropdown">
+                        		   <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown" style="
+    text-align: left;
+    text-decoration: auto;
+    font-family: sans-serif;
+    
+        font-weight: 600;
+
+">  Resources  </a>
+                        		    <ul class="dropdown-menu">
+                        			  <li><a class="dropdown-item" href="/itinerary" style="
+    text-align: left;
+    text-decoration: auto;
+    font-family: sans-serif;
+    
+        font-weight: 600;
+
+"> Itinerary</a></li>
+                        			  <li><a class="dropdown-item" href="/country-matrix" style="
+    text-align: left;
+    text-decoration: auto;
+    font-family: sans-serif;
+    
+        font-weight: 600;
+
+"> Country Matrix</a></li>
+                        			  
+                        		    </ul>
+		                    </li>
                              <li class="nav-item">
-                                <a class="nav-link" href="{{ route('enroll.myCommittees') }}">My Committees</a>
+                                <a class="nav-link" href="{{ route('enroll.myCommittees') }}" style="
+    text-align: center;
+    text-decoration: auto;
+    font-family: sans-serif;
+    
+        font-weight: 600;
+
+">My Committees</a>
                             </li>
-                            
                             @auth
                             <li class="nav-item">
                                     <a class="btn_1" href="#"
