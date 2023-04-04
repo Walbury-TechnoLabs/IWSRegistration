@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Committee;
 use App\Portfolio;
 use App\Enrollment;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyEnrollmentRequest;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreEnrollmentRequest;
 use App\Http\Requests\UpdateEnrollmentRequest;
-use App\User;
-use Gate;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use App\Http\Requests\MassDestroyEnrollmentRequest;
 class EnrollmentsController extends Controller
 {
     public function index()

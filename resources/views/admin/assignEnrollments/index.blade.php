@@ -19,6 +19,9 @@
                 <table class=" table table-bordered table-striped table-hover datatable datatable-Enrollment">
                     <thead>
                         <tr>
+                            <th width="10">
+
+                            </th>
                             <th>
                                 {{ trans('cruds.enrollment.fields.id') }}
                             </th>
@@ -32,8 +35,12 @@
                                 {{ trans('cruds.enrollment.fields.portfolio') }}
                             </th>
                             <th>
+                                School
+                            </th>
+                            <th>
                                 MUN Experience
-                            </th><th>
+                            </th>
+                            <th>
                                 MUN Achievements
                             </th>
                             <th>
@@ -44,23 +51,31 @@
                     <tbody>
                         @foreach ($enrollments as $key => $enrollment)
                             <tr data-entry-id="{{ $enrollment['id'] }}" class='table-row'>
+                                <td>
+
+                                </td>
                                 <td class='table-data table-data-id'>
                                     {{ $enrollment['id'] ?? '' }}
                                 </td>
-                                <td class='table-data table-data-user-name' data-user-id='{{ $enrollment['user_id'] ?? '' }}'>
+                                <td class='table-data table-data-user-name'
+                                    data-user-id='{{ $enrollment['user_id'] ?? '' }}'>
                                     {{ $enrollment['user_name'] ?? '' }}
                                 </td>
                                 <td class='table-data table-data-committee'>
-                                    <select class="browser-default custom-select committee_id" >
-                                        <option value ='0'>select committee</option>
+                                    <select class="browser-default custom-select committee_id">
                                         @foreach ($enrollment['committees'] as $committee1)
-                                            <option value={{ $committee1['id'] }} {{ $committee1['selected'] == 1 ? 'selected' : '' }} > {{ $committee1['committee_name'] }} </option>
+                                            <option value={{ $committee1['id'] }}
+                                                {{ $committee1['selected'] == 1 ? 'selected' : '' }}>
+                                                {{ $committee1['committee_name'] }} </option>
                                         @endforeach
-                                        <option value ='manual' >Manual Select</option>
+                                        <option value='manual'>Manual Select</option>
                                     </select>
                                 </td>
                                 <td class='table-data table-data-portfolio'>
                                     {{ $enrollment['portfolio_name'] ?? '' }}
+                                </td>
+                                <td class='table-data'>
+                                    {{ $enrollment['user']['school'] ?? '' }}
                                 </td>
                                 <td class='table-data'>
                                     {{ $enrollment['user']['exp'] ?? '' }}
@@ -70,7 +85,8 @@
                                 </td>
                                 <td class='table-data table-data-status'>
                                     <div class="dropdown">
-                                        <button type="button" data-status={{$enrollment['status']}} class="btn {{$enrollment['status'] == 'awaiting' ? 'btn-danger':'btn-success' }} status">{{ucfirst($enrollment['status'])}}</button>
+                                        <button type="button" data-status={{ $enrollment['status'] }}
+                                            class="btn {{ $enrollment['status'] == 'awaiting' ? 'btn-danger' : 'btn-success' }} status">{{ ucfirst($enrollment['status']) }}</button>
                                     </div>
                                 </td>
                             </tr>
@@ -84,32 +100,50 @@
 @section('scripts')
     @parent
     <script>
-        $(document).ready(function (e){
+        $(document).ready(function(e) {
+
+            let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+
+            $.extend(true, $.fn.dataTable.defaults, {
+                order: [
+                    [1, 'desc']
+                ],
+                pageLength: 100,
+            });
+            $('.datatable-Enrollment:not(.ajaxTable)').DataTable({
+                buttons: dtButtons
+            })
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+                $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+            });
+            
             let $committees = "{{ $committees }}"
             let $portfolios = "{{ $portfolios }}"
             $committees = JSON.parse($committees.replace(/&quot;/g, '\"'));
             $portfolios = JSON.parse($portfolios.replace(/&quot;/g, '\"'));
 
-            $(document).on('change','.committee_id',async function (){
+            $(document).on('change', '.committee_id', async function() {
                 let $this = $(this);
                 let $value = $this.val();
                 let user_id = $this.closest('.table-row').find('.table-data-user-name').data('user-id');
                 let status = $this.closest('.table-row').find('.status').data('status');
-                if($value == 'manual'){
-                    $(this).after(committe_dropdown($committees,'committee_second_id'))
-                    $(this).closest('.table-row').find('.table-data-portfolio').html(portfolio_dropdown($portfolios))
-                }else{
+                if ($value == 'manual') {
+                    $(this).after(committe_dropdown($committees, 'committee_second_id'))
+                    $(this).closest('.table-row').find('.table-data-portfolio').html(portfolio_dropdown(
+                        $portfolios))
+                } else {
                     $(this).parent().find('.committee_second_id').remove()
                     let data = {
-                        id : $value,
-                        status : status,
+                        id: $value,
+                        status: status,
                     }
                     await $.ajax({
                         url: "{{ url('/') }}" + "/admin/assign-enrollments/getPortfolio",
                         type: 'GET',
-                        data:data,
+                        data: data,
                         success: function(result, status, xhr) {
-                            $this.closest('.table-row').find('.table-data-portfolio').html(result.name)                                 
+                            $this.closest('.table-row').find('.table-data-portfolio').html(
+                                result.name)
                         },
                         error: function(request, status, errorThrown) {
                             console.log(errorThrown);
@@ -118,79 +152,84 @@
                 }
             })
 
-            $(document).on('click','.status',async function (){
+            $(document).on('click', '.status', async function() {
                 $this = $(this);
-                if($(this).data('status') == 'awaiting'){
-                    $(this).data('status','accepted')
+                if ($(this).data('status') == 'awaiting') {
+                    $(this).data('status', 'accepted')
                     $(this).removeClass('btn-danger').addClass('btn-success')
                     $(this).html('Accepted')
                 } else {
-                    $(this).data('status','awaiting')
+                    $(this).data('status', 'awaiting')
                     $(this).removeClass('btn-success').addClass('btn-danger')
                     $(this).html('Awaiting')
                 }
 
                 await $.ajax({
-                        url: "{{ url('/') }}" + "/admin/assign-enrollments/updateStatus/"+ $this.closest('.table-row').find('.committee_id').val(),
-                        type: 'PUT',
-                        data:{
-                            status : $this.data('status')
-                        },
-                        success: function(result, status, xhr) {
-                            console.log(result);
-                        },
-                        error: function(request, status, errorThrown) {
-                            console.log(errorThrown);
-                        }
-                    });
+                    url: "{{ url('/') }}" + "/admin/assign-enrollments/updateStatus/" +
+                        $this.closest('.table-row').find('.committee_id').val(),
+                    type: 'PUT',
+                    data: {
+                        status: $this.data('status')
+                    },
+                    success: function(result, status, xhr) {
+                        console.log(result);
+                    },
+                    error: function(request, status, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                });
             });
 
-            $(document).on('click','.save',async function (){
+            $(document).on('click', '.save', async function() {
                 $this = $(this)
                 $temp = $this.closest('.table-row')
                 let user_id = $this.closest('.table-row').find('.table-data-user-name').data('user-id');
                 data = {
-                    'committee_id' : $temp.find('.committee_second_id').val(),
-                    'portfolio_id' : $temp.find('.porfolio_id').val(),
-                    'status' : $temp.find('.status').data('status'),
-                    'user_id' : user_id,
+                    'committee_id': $temp.find('.committee_second_id').val(),
+                    'portfolio_id': $temp.find('.porfolio_id').val(),
+                    'status': $temp.find('.status').data('status'),
+                    'user_id': user_id,
                 }
                 $temp.find('.committee_second_id').remove()
                 $temp.find('.table-data-portfolio').html('')
                 await $.ajax({
-                        url: "{{ url('/') }}" + "/admin/assign-enrollments/enrollmentSave",
-                        type: 'POST',
-                        data:data,
-                        success: function(result, status, xhr) {
-                            $committees = JSON.parse(result.committees.replace(/&quot;/g, '\"'));
-                            console.log($committees)
-                            $temp.find('.committee_id').html(committe_dropdown($committees,'committee_id'));
-                            $temp.find('.portfolio_id').html(result.portfolio.name);
-                        },
-                        error: function(request, status, errorThrown) {
-                            console.log(errorThrown);
-                        }
-                    });
+                    url: "{{ url('/') }}" + "/admin/assign-enrollments/enrollmentSave",
+                    type: 'POST',
+                    data: data,
+                    success: function(result, status, xhr) {
+                        $committees = JSON.parse(result.committees.replace(/&quot;/g,
+                        '\"'));
+                        console.log($committees)
+                        $temp.find('.committee_id').html(committe_dropdown($committees,
+                            'committee_id'));
+                        $temp.find('.portfolio_id').html(result.portfolio.name);
+                    },
+                    error: function(request, status, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                });
             });
 
-            function portfolio_dropdown(data){
+            function portfolio_dropdown(data) {
                 $respose = "<div class=row><select class='col-10 browser-default custom-select porfolio_id'>"
-                data?.forEach(function (item,index) {
+                data?.forEach(function(item, index) {
                     $respose += `<option value=${item.id} >${item.name}</option>`
-                })    
-                return $respose += "</select><button type='button' class='col-2 btn btn-primary save'>Save</button></div>"
+                })
+                return $respose +=
+                    "</select><button type='button' class='col-2 btn btn-primary save'>Save</button></div>"
             }
 
-            function committe_dropdown(data,$type){
+            function committe_dropdown(data, $type) {
                 let $response = `<select class='browser-default custom-select ${$type}'>`
-                    data?.forEach(function (item, index) {
-                        selected = item.selected == 1? 'selected' : '';
-                        $response += `<option value=${item.id} ${selected} >${ $type == 'committee_id' ? item.committee_name : item.name }</option>`
-                    })
-                    if($type == 'committee_id'){
-                        $response += "<option value='manual' > Select Manual </option>"
-                    }
-                    return $response += "</select>"
+                data?.forEach(function(item, index) {
+                    selected = item.selected == 1 ? 'selected' : '';
+                    $response +=
+                        `<option value=${item.id} ${selected} >${ $type == 'committee_id' ? item.committee_name : item.name }</option>`
+                })
+                if ($type == 'committee_id') {
+                    $response += "<option value='manual' > Select Manual </option>"
+                }
+                return $response += "</select>"
             }
         })
     </script>

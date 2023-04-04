@@ -6,12 +6,7 @@ use App\Committee;
 use App\Portfolio;
 use App\Enrollment;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyEnrollmentRequest;
-use App\Http\Requests\StoreEnrollmentRequest;
-use App\Http\Requests\UpdateEnrollmentRequest;
-use App\User;
-use Gate;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class AssignEnrollmentsController extends Controller
@@ -21,7 +16,8 @@ class AssignEnrollmentsController extends Controller
         abort_if(Gate::denies('enrollment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $committees = Committee::select('id','name')->get()->makeHidden('photo')->toArray();
         $portfolios = Portfolio::select('id','name')->get()->makeHidden('logo')->toArray();
-        $enrollments = Enrollment::with('committee','portfolio')->get()->append(['committee_name','user_name','portfolio_name'])->toArray();
+        $enrollments = Enrollment::select('id','status','selected','user_id','committee_id','portfolio_id')
+                ->with(['committee:id,name','portfolio:id,name','user:id,name,exp,ach,school'])->get()->append(['committee_name','user_name','portfolio_name'])->toArray();
         $enrollments = collect($enrollments)->groupBy('user_id')->values()->all();
         $response = [];
         foreach($enrollments as $enrollment){
@@ -42,6 +38,7 @@ class AssignEnrollmentsController extends Controller
             });
             $response[] = $temp; 
         }
+
         return view('admin.assignEnrollments.index', [
             'enrollments' => $response,
             'committees' => json_encode($committees),

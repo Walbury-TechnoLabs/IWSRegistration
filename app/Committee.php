@@ -17,7 +17,7 @@ class Committee extends Model implements HasMedia
     public $table = 'committees';
 
     protected $appends = [
-        'photo',
+        'photo'
     ];
 
     protected $dates = [
@@ -54,7 +54,6 @@ class Committee extends Model implements HasMedia
     public function getPhotoAttribute()
     {
         $file = $this->getMedia('photo')->last();
-
         if ($file) {
             $file->url       = $file->getUrl();
             $file->thumbnail = $file->getUrl('thumb');
@@ -72,12 +71,6 @@ class Committee extends Model implements HasMedia
     {
         return $this->belongsToMany(Discipline::class);
     }
-
-    // public function getPrice()
-    // {
-    //     return 0;
-    //     return $this->price ? '$'.number_format($this->price, 2) : 'FREE';
-    // }
 
     public function scopeSearchResults($query)
     {
